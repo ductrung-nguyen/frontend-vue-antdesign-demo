@@ -1,20 +1,23 @@
 <template>
-  <PageWrapper title="图片裁剪示例" content="需要开启测试接口服务才能进行上传测试！">
-    <CollapseContainer title="头像裁剪">
+  <PageWrapper
+    title="Image cropping example"
+    content="The test API service needs to be enabled to perform the upload test!"
+  >
+    <CollapseContainer title="Avatar cropping">
       <CropperAvatar :uploadApi="uploadApi" :value="avatar" />
     </CollapseContainer>
 
-    <CollapseContainer title="矩形裁剪" class="my-4">
+    <CollapseContainer title="Rectangle crop" class="my-4">
       <div class="container p-4">
         <div class="cropper-container mr-10">
           <CropperImage ref="refCropper" :src="img" @cropend="handleCropend" style="width: 40vw" />
         </div>
         <img :src="cropperImg" class="croppered" v-if="cropperImg" alt="" />
       </div>
-      <p v-if="cropperImg">裁剪后图片信息：{{ info }}</p>
+      <p v-if="cropperImg">Cropped image information:{{ info }}</p>
     </CollapseContainer>
 
-    <CollapseContainer title="圆形裁剪">
+    <CollapseContainer title="Round cut">
       <div class="container p-4">
         <div class="cropper-container mr-10">
           <CropperImage
@@ -27,7 +30,7 @@
         </div>
         <img :src="circleImg" class="croppered" v-if="circleImg" />
       </div>
-      <p v-if="circleImg">裁剪后图片信息：{{ circleInfo }}</p>
+      <p v-if="circleImg">Cropped image information:{{ circleInfo }}</p>
     </CollapseContainer>
   </PageWrapper>
 </template>

@@ -14,7 +14,7 @@
     {
       field: 'field1',
       component: 'Input',
-      label: '字段1',
+      label: 'Field 1',
       colProps: {
         span: 12,
       },
@@ -23,7 +23,7 @@
     {
       field: 'field2',
       component: 'Input',
-      label: '字段2',
+      label: 'Field 2',
       colProps: {
         span: 12,
       },
@@ -41,7 +41,7 @@
         },
       });
       const [register] = useDrawerInner((data) => {
-        // 方式1
+        // way 1
         setFieldsValue({
           field2: data.data,
           field1: data.info,

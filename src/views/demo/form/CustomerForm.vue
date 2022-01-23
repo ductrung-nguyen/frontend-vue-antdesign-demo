@@ -1,9 +1,9 @@
 <template>
-  <PageWrapper title="自定义组件示例">
-    <CollapseContainer title="自定义表单">
+  <PageWrapper title="Custom component example">
+    <CollapseContainer title="Custom form">
       <BasicForm @register="register" @submit="handleSubmit">
         <template #f3="{ model, field }">
-          <a-input v-model:value="model[field]" placeholder="自定义slot" />
+          <a-input v-model:value="model[field]" placeholder="Custom slot" />
         </template>
       </BasicForm>
     </CollapseContainer>
@@ -21,14 +21,14 @@
     {
       field: 'field1',
       component: 'Input',
-      label: 'render方式',
+      label: 'Render method',
       colProps: {
         span: 8,
       },
       rules: [{ required: true }],
       render: ({ model, field }) => {
         return h(Input, {
-          placeholder: '请输入',
+          placeholder: 'Please enter',
           value: model[field],
           onChange: (e: ChangeEvent) => {
             model[field] = e.target.value;
@@ -39,7 +39,7 @@
     {
       field: 'field2',
       component: 'Input',
-      label: 'render组件slot',
+      label: 'Render component slot',
       colProps: {
         span: 8,
       },
@@ -53,7 +53,7 @@
     {
       field: 'field3',
       component: 'Input',
-      label: '自定义Slot',
+      label: 'Custom Slot',
       slot: 'f3',
       colProps: {
         span: 8,

@@ -1,11 +1,11 @@
 <template>
-  <PageWrapper title="密码强度校验组件">
+  <PageWrapper title="Password Strength Check Component">
     <div class="flex justify-center">
       <div class="demo-wrap p-10">
-        <StrengthMeter placeholder="默认" />
-        <StrengthMeter placeholder="禁用" disabled />
+        <StrengthMeter placeholder="default" />
+        <StrengthMeter placeholder="disabled" disabled />
         <br />
-        <StrengthMeter placeholder="隐藏input" :show-input="false" value="!@#qwe12345" />
+        <StrengthMeter placeholder="hide input" :show-input="false" value="!@#qwe12345" />
       </div>
     </div>
   </PageWrapper>

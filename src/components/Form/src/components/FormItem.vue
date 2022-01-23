@@ -153,13 +153,13 @@
         function validator(rule: any, value: any) {
           const msg = rule.message || defaultMsg;
           if (value === undefined || isNull(value)) {
-            // 空值
+            // null
             return Promise.reject(msg);
           } else if (Array.isArray(value) && value.length === 0) {
-            // 数组类型
+            // array type
             return Promise.reject(msg);
           } else if (typeof value === 'string' && value.trim() === '') {
-            // 空字符串
+            // empty string
             return Promise.reject(msg);
           } else if (
             typeof value === 'object' &&
@@ -170,7 +170,7 @@
             value.checked.length === 0 &&
             value.halfChecked.length === 0
           ) {
-            // 非关联选择的tree组件
+            // tree component for non-associative selection
             return Promise.reject(msg);
           }
           return Promise.resolve();

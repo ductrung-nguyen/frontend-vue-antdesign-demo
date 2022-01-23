@@ -118,13 +118,13 @@ export interface TableActionType {
 }
 
 export interface FetchSetting {
-  // 请求接口当前页数
+  // Request the current page number of the UI
   pageField: string;
-  // 每页显示多少条
+  // How many lines to display per page
   sizeField: string;
-  // 请求结果列表字段  支持 a.b.c
+  // Request result list fields support a.b.c
   listField: string;
-  // 请求结果总数字段  支持 a.b.c
+  // Request Results Total Field Support a.b.c
   totalField: string;
 }
 
@@ -136,83 +136,83 @@ export interface TableSetting {
 }
 
 export interface BasicTableProps<T = any> {
-  // 点击行选中
+  // Click the row to select
   clickToRowSelect?: boolean;
   isTreeTable?: boolean;
-  // 自定义排序方法
+  // Custom sorting method
   sortFn?: (sortInfo: SorterResult) => any;
-  // 排序方法
+  // Sort method
   filterFn?: (data: Partial<Recordable<string[]>>) => any;
-  // 取消表格的默认padding
+  // Cancel the default padding of the table
   inset?: boolean;
-  // 显示表格设置
+  // Show table settings
   showTableSetting?: boolean;
   tableSetting?: TableSetting;
-  // 斑马纹
+  // striped (two colors)?
   striped?: boolean;
-  // 是否自动生成key
+  // Whether to automatically generate a key
   autoCreateKey?: boolean;
-  // 计算合计行的方法
+  // How to Calculate Total Rows
   summaryFunc?: (...arg: any) => Recordable[];
-  // 自定义合计表格内容
+  // Customize total table content
   summaryData?: Recordable[];
-  // 是否显示合计行
+  // whether to display the total row
   showSummary?: boolean;
-  // 是否可拖拽列
+  // Whether the column can be dragged
   canColDrag?: boolean;
-  // 接口请求对象
+  // API request object
   api?: (...arg: any) => Promise<any>;
-  // 请求之前处理参数
+  // Process parameters before request
   beforeFetch?: Fn;
-  // 自定义处理接口返回参数
+  // Custom processing interface return parameters
   afterFetch?: Fn;
-  // 查询条件请求之前处理
+  // Query condition is processed before request
   handleSearchInfoFn?: Fn;
-  // 请求接口配置
+  // request API configuration
   fetchSetting?: Partial<FetchSetting>;
-  // 立即请求接口
+  // request interface immediately
   immediate?: boolean;
-  // 在开起搜索表单的时候，如果没有数据是否显示表格
+  // When opening the search form, whether to display the form if there is no data
   emptyDataIsShowTable?: boolean;
-  // 额外的请求参数
+  // Additional request parameters
   searchInfo?: Recordable;
-  // 默认的排序参数
+  // default sort parameters
   defSort?: Recordable;
-  // 使用搜索表单
+  // Use the search form
   useSearchForm?: boolean;
-  // 表单配置
+  // Form configuration
   formConfig?: Partial<FormProps>;
-  // 列配置
+  // column configuration
   columns: BasicColumn[];
-  // 是否显示序号列
+  // Whether to show the serial number column
   showIndexColumn?: boolean;
-  // 序号列配置
+  // Serial number column configuration
   indexColumnProps?: BasicColumn;
   actionColumn?: BasicColumn;
-  // 文本超过宽度是否显示。。。
+  // Whether the text exceeds the width to display. . .
   ellipsis?: boolean;
-  // 是否继承父级高度（父级高度-表单高度-padding高度）
+  // Whether to inherit the parent height (parent height - form height - padding height)
   isCanResizeParent?: boolean;
-  // 是否可以自适应高度
+  // Is it possible to adapt the height
   canResize?: boolean;
-  // 自适应高度偏移， 计算结果-偏移量
+  // Adaptive Height Offset, Calculated - Offset
   resizeHeightOffset?: number;
 
-  // 在分页改变的时候清空选项
+  // Clear options when pagination changes
   clearSelectOnPageChange?: boolean;
   //
   rowKey?: string | ((record: Recordable) => string);
-  // 数据
+  // data
   dataSource?: Recordable[];
-  // 标题右侧提示
+  // right side of title
   titleHelpMessage?: string | string[];
-  // 表格滚动最大高度
+  // table max height to enable the scroll
   maxHeight?: number;
-  // 是否显示边框
+  // whether to show border
   bordered?: boolean;
-  // 分页配置
+  // Paging configuration
   pagination?: PaginationProps | boolean;
-  // loading加载
+  // is loading
   loading?: boolean;
 
   /**
@@ -445,9 +445,9 @@ export interface BasicColumn extends ColumnProps {
   editRule?: boolean | ((text: string, record: Recordable) => Promise<string>);
   editValueMap?: (value: any) => string;
   onEditRow?: () => void;
-  // 权限编码控制是否显示
+  // Whether the permission code control is displayed
   auth?: RoleEnum | RoleEnum[] | string | string[];
-  // 业务控制是否显示
+  // Whether the business control is displayed
   ifShow?: boolean | ((column: BasicColumn) => boolean);
 }
 

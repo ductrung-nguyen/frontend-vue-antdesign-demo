@@ -1,4 +1,3 @@
-// axios配置  可自行根据项目进行更改，只需更改该文件即可，其他文件可以不动
 // The axios configuration can be changed according to the project, just change the file, other files can be left unchanged
 
 import type { AxiosResponse } from 'axios';
@@ -23,42 +22,42 @@ const urlPrefix = globSetting.urlPrefix;
 const { createMessage, createErrorModal } = useMessage();
 
 /**
- * @description: 数据处理，方便区分多种处理方式
+ * @description: Data processing, easy to distinguish between various processing methods
  */
 const transform: AxiosTransform = {
   /**
-   * @description: 处理请求数据。如果数据不是预期格式，可直接抛出错误
+   * @description: Process request data. If the data is not in the expected format, an error can be thrown directly
    */
   transformRequestHook: (res: AxiosResponse<Result>, options: RequestOptions) => {
     const { t } = useI18n();
     const { isTransformResponse, isReturnNativeResponse } = options;
-    // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+    // Whether to return native response headers. For example: use this property when you need to get response headers
     if (isReturnNativeResponse) {
       return res;
     }
-    // 不进行任何处理，直接返回
-    // 用于页面代码可能需要直接获取code，data，message这些信息时开启
+    // Return without any processing
+    // For page code, it may be necessary to directly obtain code, data, and message information.
     if (!isTransformResponse) {
       return res.data;
     }
-    // 错误的时候返回
+    // return error
 
     const { data } = res;
     if (!data) {
       // return '[HTTP] Request has no return value';
       throw new Error(t('sys.api.apiRequestFailed'));
     }
-    //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
+    //  the information that need to be modified to the project's own interface return format in types.ts
     const { code, result, message } = data;
 
-    // 这里逻辑可以根据项目进行修改
+    // This logic can be modified according to the project
     const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
     if (hasSuccess) {
       return result;
     }
 
-    // 在此处根据自己项目的实际情况对不同的code执行不同的操作
-    // 如果不希望中断当前请求，请return数据，否则直接抛出异常即可
+    // Perform different operations on different codes according to the actual situation of your own project
+    // If you do not want to interrupt the current request, please return the data, otherwise throw an exception directly
     let timeoutMsg = '';
     switch (code) {
       case ResultEnum.TIMEOUT:
@@ -73,8 +72,9 @@ const transform: AxiosTransform = {
         }
     }
 
-    // errorMessageMode=‘modal’的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
-    // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
+    // errorMessageMode='modal': When the modal error pop-up window is displayed instead of a message prompt,
+    // it is used for some more important errors
+    // errorMessageMode='none': Generally, when calling, it is clear that you do not want an error prompt to pop up automatically
     if (options.errorMessageMode === 'modal') {
       createErrorModal({ title: t('sys.api.errorTip'), content: timeoutMsg });
     } else if (options.errorMessageMode === 'message') {
@@ -84,7 +84,7 @@ const transform: AxiosTransform = {
     throw new Error(timeoutMsg || t('sys.api.apiRequestFailed'));
   },
 
-  // 请求之前处理config
+  // Process config before request
   beforeRequestHook: (config, options) => {
     const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix } = options;
 
@@ -100,10 +100,10 @@ const transform: AxiosTransform = {
     formatDate && data && !isString(data) && formatRequestDate(data);
     if (config.method?.toUpperCase() === RequestEnum.GET) {
       if (!isString(params)) {
-        // 给 get 请求加上时间戳参数，避免从缓存中拿数据。
+        // Add timestamp parameter to get request to avoid getting data from cache.
         config.params = Object.assign(params || {}, joinTimestamp(joinTime, false));
       } else {
-        // 兼容restful风格
+        // Compatible with restful style
         config.url = config.url + params + `${joinTimestamp(joinTime, true)}`;
         config.params = undefined;
       }
@@ -114,7 +114,7 @@ const transform: AxiosTransform = {
           config.data = data;
           config.params = params;
         } else {
-          // 非GET请求如果没有提供data，则将params视为data
+          // Non-GET requests treat params as data if no data is provided
           config.data = params;
           config.params = undefined;
         }
@@ -125,7 +125,7 @@ const transform: AxiosTransform = {
           );
         }
       } else {
-        // 兼容restful风格
+        // Compatible with restful style
         config.url = config.url + params;
         config.params = undefined;
       }
@@ -134,10 +134,10 @@ const transform: AxiosTransform = {
   },
 
   /**
-   * @description: 请求拦截器处理
+   * @description: Request interceptor processing
    */
   requestInterceptors: (config, options) => {
-    // 请求之前处理config
+    // Process config before request
     const token = getToken();
     if (token && (config as Recordable)?.requestOptions?.withToken !== false) {
       // jwt token
@@ -149,14 +149,14 @@ const transform: AxiosTransform = {
   },
 
   /**
-   * @description: 响应拦截器处理
+   * @description: Response interceptor processing
    */
   responseInterceptors: (res: AxiosResponse<any>) => {
     return res;
   },
 
   /**
-   * @description: 响应错误处理
+   * @description: response error handling
    */
   responseInterceptorsCatch: (error: any) => {
     const { t } = useI18n();
@@ -198,41 +198,41 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
     deepMerge(
       {
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
-        // authentication schemes，e.g: Bearer
+        // authentication schemes, e.g: Bearer
         // authenticationScheme: 'Bearer',
         authenticationScheme: '',
         timeout: 10 * 1000,
-        // 基础接口地址
+        // base API address
         // baseURL: globSetting.apiUrl,
 
         headers: { 'Content-Type': ContentTypeEnum.JSON },
-        // 如果是form-data格式
+        // If it is form-data format
         // headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
-        // 数据处理方式
+        // Data processing method
         transform: clone(transform),
-        // 配置项，下面的选项都可以在独立的接口请求中覆盖
+        // Configuration items, the following options can be overridden in independent API requests
         requestOptions: {
-          // 默认将prefix 添加到url
+          // Add prefix to url by default
           joinPrefix: true,
-          // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+          // Whether to return native response headers? For example: use this property when you need to get response headers
           isReturnNativeResponse: false,
-          // 需要对返回数据进行处理
+          // The returned data needs to be processed or or done any transformation?
           isTransformResponse: true,
-          // post请求的时候添加参数到url
+          // Add parameters to the url when making a post request
           joinParamsToUrl: false,
-          // 格式化提交参数时间
+          // Format submit parameter time
           formatDate: true,
-          // 消息提示类型
+          // message type
           errorMessageMode: 'message',
-          // 接口地址
+          // API URL
           apiUrl: globSetting.apiUrl,
-          // 接口拼接地址
+          // API URL prefix
           urlPrefix: urlPrefix,
-          //  是否加入时间戳
+          //  Whether to add timestamp
           joinTime: true,
-          // 忽略重复请求
+          // Ignore duplicate requests
           ignoreCancelToken: true,
-          // 是否携带token
+          // Whether to carry the token
           withToken: true,
         },
       },

@@ -44,13 +44,13 @@
     props: {
       imgList: propTypes.arrayOf(propTypes.string),
       size: propTypes.number.def(40),
-      // 是否简单显示（只显示第一张图片）
+      // Whether it is simple display (only the first picture is displayed)
       simpleShow: propTypes.bool,
-      // 简单模式下是否显示图片数量的badge
+      // Whether to display the badge of the number of pictures in simple mode
       showBadge: propTypes.bool.def(true),
-      // 图片间距
+      // picture spacing
       margin: propTypes.number.def(4),
-      // src前缀，将会附加在imgList中每一项之前
+      // src prefix, which will be appended before each item in imgList
       srcPrefix: propTypes.string.def(''),
     },
     setup(props) {

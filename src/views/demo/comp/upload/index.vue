@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="上传组件示例">
-    <a-alert message="基础示例" />
+  <PageWrapper title="Upload component example">
+    <a-alert message="Basic example" />
     <BasicUpload
       :maxSize="20"
       :maxNumber="10"
@@ -10,7 +10,7 @@
       :accept="['image/*']"
     />
 
-    <a-alert message="嵌入表单,加入表单校验" />
+    <a-alert message="Embed form, add form validation" />
 
     <BasicForm @register="register" class="my-5" />
   </PageWrapper>
@@ -28,11 +28,11 @@
     {
       field: 'field1',
       component: 'Upload',
-      label: '字段1',
+      label: 'field 1',
       colProps: {
         span: 8,
       },
-      rules: [{ required: true, message: '请选择上传文件' }],
+      rules: [{ required: true, message: 'Please select upload file' }],
       componentProps: {
         api: uploadApi,
       },
@@ -51,7 +51,7 @@
       });
       return {
         handleChange: (list: string[]) => {
-          createMessage.info(`已上传文件${JSON.stringify(list)}`);
+          createMessage.info(`File uploaded${JSON.stringify(list)}`);
         },
         uploadApi,
         register,

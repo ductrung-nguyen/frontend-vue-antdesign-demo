@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, toRefs, ref, unref } from 'vue';
+  import { defineComponent, toRefs, ref } from 'vue';
   import { createAppProviderContext } from './useAppContext';
   import { createBreakpointListen } from '/@/hooks/event/useBreakpoint';
   import { prefixCls } from '/@/settings/designSetting';
@@ -41,8 +41,8 @@
        * Used to maintain the state before the window changes
        */
       function handleRestoreState() {
-        if (unref(isMobile)) {
-          if (!unref(isSetState)) {
+        if (isMobile.value) {
+          if (!isSetState.value) {
             isSetState.value = true;
             const {
               menuSetting: {
@@ -62,7 +62,7 @@
             appStore.setBeforeMiniInfo({ menuMode, menuCollapsed, menuType, menuSplit });
           }
         } else {
-          if (unref(isSetState)) {
+          if (isSetState.value) {
             isSetState.value = false;
             const { menuMode, menuCollapsed, menuType, menuSplit } = appStore.getBeforeMiniInfo;
             appStore.setProjectConfig({

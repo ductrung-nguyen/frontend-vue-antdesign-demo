@@ -14,7 +14,7 @@ function handleError(e: Error) {
 }
 
 // page switch
-export function useGo(_router?: Router) {
+export function useNavigator(_router?: Router) {
   let router;
   if (!_router) {
     router = useRouter();

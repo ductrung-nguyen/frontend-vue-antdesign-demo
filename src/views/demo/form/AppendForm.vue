@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="表单增删示例">
-    <CollapseContainer title="表单增删">
+  <PageWrapper title="Form addition and deletion example">
+    <CollapseContainer title="Form additions and deletions">
       <BasicForm @register="register" @submit="handleSubmit">
         <template #add="{ field }">
           <Button v-if="Number(field) === 0" @click="add">+</Button>
@@ -26,7 +26,7 @@
           {
             field: 'field0a',
             component: 'Input',
-            label: '字段0',
+            label: 'Field 0',
             colProps: {
               span: 8,
             },
@@ -35,7 +35,7 @@
           {
             field: 'field0b',
             component: 'Input',
-            label: '字段0',
+            label: 'Field 0',
             colProps: {
               span: 8,
             },
@@ -71,7 +71,7 @@
           {
             field: `field${n.value}a`,
             component: 'Input',
-            label: '字段' + n.value,
+            label: 'Field' + n.value,
             colProps: {
               span: 8,
             },
@@ -83,7 +83,7 @@
           {
             field: `field${n.value}b`,
             component: 'Input',
-            label: '字段' + n.value,
+            label: 'Field' + n.value,
             colProps: {
               span: 8,
             },

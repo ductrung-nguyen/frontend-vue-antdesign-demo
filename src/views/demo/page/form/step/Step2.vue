@@ -1,11 +1,14 @@
 <template>
   <div class="step2">
-    <a-alert message="确认转账后，资金将直接打入对方账户，无法退回。" show-icon />
+    <a-alert
+      message="After confirming the transfer, the funds will be directly credited to the other party's account and cannot be returned."
+      show-icon
+    />
     <a-descriptions :column="1" class="mt-5">
-      <a-descriptions-item label="付款账户"> ant-design@alipay.com </a-descriptions-item>
-      <a-descriptions-item label="收款账户"> test@example.com </a-descriptions-item>
-      <a-descriptions-item label="收款人姓名"> Vben </a-descriptions-item>
-      <a-descriptions-item label="转账金额"> 500元 </a-descriptions-item>
+      <a-descriptions-item label="Payment Account"> ant-design@alipay.com </a-descriptions-item>
+      <a-descriptions-item label="Receiving account"> test@example.com </a-descriptions-item>
+      <a-descriptions-item label="Payee Name"> Vben </a-descriptions-item>
+      <a-descriptions-item label="transfer amount"> 500 yuan </a-descriptions-item>
     </a-descriptions>
     <a-divider />
     <BasicForm @register="register" />
@@ -34,10 +37,10 @@
           span: 14,
         },
         resetButtonOptions: {
-          text: '上一步',
+          text: 'Previous step',
         },
         submitButtonOptions: {
-          text: '提交',
+          text: 'Submit',
         },
         resetFunc: customResetFunc,
         submitFunc: customSubmitFunc,

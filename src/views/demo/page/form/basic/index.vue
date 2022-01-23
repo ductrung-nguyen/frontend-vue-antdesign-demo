@@ -1,8 +1,8 @@
 <template>
   <PageWrapper
-    title="基础表单"
+    title="basic form"
     contentBackground
-    content=" 表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。"
+    content="The form page is used to collect or verify information from the user. The basic form is often used in form scenarios with few data items."
     contentClass="p-4"
   >
     <BasicForm @register="register" />
@@ -33,7 +33,7 @@
           span: 12,
         },
         submitButtonOptions: {
-          text: '提交',
+          text: 'Submit',
         },
         submitFunc: customSubmitFunc,
       });
@@ -52,7 +52,7 @@
                 loading: false,
               },
             });
-            createMessage.success('提交成功！');
+            createMessage.success('Submission successful!');
           }, 2000);
         } catch (error) {}
       }

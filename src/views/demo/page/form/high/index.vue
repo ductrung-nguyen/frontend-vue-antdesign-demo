@@ -1,21 +1,21 @@
 <template>
   <PageWrapper
     class="high-form"
-    title="高级表单"
-    content=" 高级表单常见于一次性输入和提交大批量数据的场景。"
+    title="Advanced Form"
+    content="Advanced forms are commonly used in scenarios where large amounts of data are entered and submitted at one time."
   >
-    <a-card title="仓库管理" :bordered="false">
+    <a-card title="Warehouse management" :bordered="false">
       <BasicForm @register="register" />
     </a-card>
-    <a-card title="任务管理" :bordered="false" class="!mt-5">
+    <a-card title="Task Management" :bordered="false" class="!mt-5">
       <BasicForm @register="registerTask" />
     </a-card>
-    <a-card title="成员管理" :bordered="false">
+    <a-card title="Member management" :bordered="false">
       <PersonTable ref="tableRef" />
     </a-card>
 
     <template #rightFooter>
-      <a-button type="primary" @click="submitAll"> 提交 </a-button>
+      <a-button type="primary" @click="submitAll"> Submit </a-button>
     </template>
   </PageWrapper>
 </template>

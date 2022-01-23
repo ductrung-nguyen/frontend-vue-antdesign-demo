@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="子级详情页">
-    <div>子级详情页内容在此</div>
+  <PageWrapper title="Child detail page">
+    <div>The content of the child details page is here</div>
   </PageWrapper>
 </template>
 <script lang="ts">

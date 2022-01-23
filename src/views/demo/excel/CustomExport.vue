@@ -1,8 +1,8 @@
 <template>
-  <PageWrapper title="导出示例" content="可以选择导出格式">
-    <BasicTable title="基础表格" :columns="columns" :dataSource="data">
+  <PageWrapper title="Export example" content="Optional export format">
+    <BasicTable title="basic form" :columns="columns" :dataSource="data">
       <template #toolbar>
-        <a-button @click="openModal"> 导出 </a-button>
+        <a-button @click="openModal"> Export </a-button>
       </template>
     </BasicTable>
     <ExpExcelModal @register="register" @success="defaultHeader" />
@@ -21,7 +21,7 @@
     components: { BasicTable, ExpExcelModal, PageWrapper },
     setup() {
       function defaultHeader({ filename, bookType }: ExportModalResult) {
-        // 默认Object.keys(data[0])作为header
+        // Default Object.keys(data[0]) as header
         jsonToSheetXlsx({
           data,
           filename,

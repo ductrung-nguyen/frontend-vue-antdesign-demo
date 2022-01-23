@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="Tab详情页面">
-    <div>{{ index }} - 详情页内容在此</div>
+  <PageWrapper title="Tab detail page">
+    <div>{{ index }} - Details page content is here</div>
   </PageWrapper>
 </template>
 
@@ -18,8 +18,8 @@
       const index = route.params?.id ?? -1;
       const { setTitle } = useTabs();
 
-      // 设置标识
-      setTitle(`No.${index} - 详情信息`);
+      // set the flag
+      setTitle(`No.${index} - details`);
       return {
         index,
       };

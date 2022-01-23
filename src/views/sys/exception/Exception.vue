@@ -8,7 +8,7 @@
   import { useRoute } from 'vue-router';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useI18n } from '/@/hooks/web/useI18n';
-  import { useGo, useRedo } from '/@/hooks/web/usePage';
+  import { useNavigator, useRedo } from '/@/hooks/web/usePage';
   import { PageEnum } from '/@/enums/pageEnum';
 
   interface MapValue {
@@ -23,7 +23,7 @@
   export default defineComponent({
     name: 'ErrorPage',
     props: {
-      // 状态码
+      // status code
       status: {
         type: Number as PropType<number>,
         default: ExceptionEnum.PAGE_NOT_FOUND,
@@ -48,7 +48,7 @@
       const statusMapRef = ref(new Map<string | number, MapValue>());
 
       const { query } = useRoute();
-      const go = useGo();
+      const go = useNavigator();
       const redo = useRedo();
       const { t } = useI18n();
       const { prefixCls } = useDesign('app-exception-page');

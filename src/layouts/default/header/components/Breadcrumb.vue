@@ -25,7 +25,7 @@
 
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useRootSetting } from '/@/hooks/setting/useRootSetting';
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   import { propTypes } from '/@/utils/propTypes';
@@ -47,7 +47,7 @@
       const { currentRoute } = useRouter();
       const { prefixCls } = useDesign('layout-breadcrumb');
       const { getShowBreadCrumbIcon } = useRootSetting();
-      const go = useGo();
+      const go = useNavigator();
 
       const { t } = useI18n();
       watchEffect(async () => {

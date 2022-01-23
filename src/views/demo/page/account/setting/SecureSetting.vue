@@ -1,5 +1,5 @@
 <template>
-  <CollapseContainer title="安全设置" :canExpan="false">
+  <CollapseContainer title="Security Settings" :canExpan="false">
     <List>
       <template v-for="item in list" :key="item.key">
         <ListItem>

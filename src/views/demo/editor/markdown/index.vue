@@ -1,17 +1,17 @@
 <template>
-  <PageWrapper title="MarkDown组件示例">
+  <PageWrapper title="MarkDown component example">
     <div>
-      <a-button @click="toggleTheme" class="mb-2" type="primary"> 黑暗主题 </a-button>
-      <a-button @click="clearValue" class="mb-2" type="default"> 清空内容 </a-button>
+      <a-button @click="toggleTheme" class="mb-2" type="primary"> Dark theme </a-button>
+      <a-button @click="clearValue" class="mb-2" type="default"> Clear content </a-button>
       <MarkDown
         v-model:value="value"
         @change="handleChange"
         ref="markDownRef"
-        placeholder="这是占位文本"
+        placeholder="This is placeholder text"
       />
     </div>
     <div class="mt-2">
-      <a-card title="Markdown Viewer 组件演示">
+      <a-card title="Demonstration of the Markdown Viewer component">
         <MarkdownViewer :value="value" />
       </a-card>
     </div>

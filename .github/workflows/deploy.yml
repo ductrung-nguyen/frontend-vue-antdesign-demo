@@ -94,8 +94,8 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com > ~/.ssh/known_hosts
           chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-          git config --local user.email "vbenadmin@163.com"
-          git config --local user.name "vbenAdmin"
+          git config --local user.email "ductrungkhtn@gmail.com"
+          git config --local user.name "Duc Trung NGUYEN"
 
       - name: Delete gh-pages branch
         run: |

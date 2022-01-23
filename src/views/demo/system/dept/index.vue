@@ -2,7 +2,7 @@
   <div>
     <BasicTable @register="registerTable">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增部门 </a-button>
+        <a-button type="primary" @click="handleCreate"> Add department </a-button>
       </template>
       <template #action="{ record }">
         <TableAction
@@ -15,7 +15,7 @@
               icon: 'ant-design:delete-outlined',
               color: 'error',
               popConfirm: {
-                title: '是否确认删除',
+                title: 'Are you sure to delete?',
                 confirm: handleDelete.bind(null, record),
               },
             },
@@ -43,7 +43,7 @@
     setup() {
       const [registerModal, { openModal }] = useModal();
       const [registerTable, { reload }] = useTable({
-        title: '部门列表',
+        title: 'Department list',
         api: getDeptList,
         columns,
         formConfig: {
@@ -59,7 +59,7 @@
         canResize: false,
         actionColumn: {
           width: 80,
-          title: '操作',
+          title: 'Operation',
           dataIndex: 'action',
           slots: { customRender: 'action' },
           fixed: undefined,

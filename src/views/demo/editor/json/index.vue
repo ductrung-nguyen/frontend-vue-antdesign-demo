@@ -1,12 +1,17 @@
 <template>
-  <PageWrapper title="代码编辑器组件示例" contentFullHeight fixedHeight contentBackground>
+  <PageWrapper
+    title="Code Editor Component Example"
+    contentFullHeight
+    fixedHeight
+    contentBackground
+  >
     <template #extra>
       <a-space size="middle">
-        <a-button @click="showData" type="primary">获取数据</a-button>
+        <a-button @click="showData" type="primary">Retrieve data</a-button>
         <RadioGroup button-style="solid" v-model:value="modeValue" @change="handleModeChange">
-          <RadioButton value="application/json"> json数据 </RadioButton>
-          <RadioButton value="htmlmixed"> html代码 </RadioButton>
-          <RadioButton value="javascript"> javascript代码 </RadioButton>
+          <RadioButton value="application/json"> JSON data </RadioButton>
+          <RadioButton value="htmlmixed"> HTML code </RadioButton>
+          <RadioButton value="javascript"> Javascript code </RadioButton>
         </RadioGroup>
       </a-space>
     </template>
@@ -20,7 +25,7 @@
   import { Radio, Space, Modal } from 'ant-design-vue';
 
   const jsonData =
-    '{"name":"BeJson","url":"http://www.xxx.com","page":88,"isNonProfit":true,"address":{"street":"科技园路.","city":"江苏苏州","country":"中国"},"links":[{"name":"Google","url":"http://www.xxx.com"},{"name":"Baidu","url":"http://www.xxx.com"},{"name":"SoSo","url":"http://www.xxx.com"}]}';
+    '{"name":"BeJson","url":"http://www.xxx.com","page":88,"isNonProfit":true,"address":{"street":"Science and Technology Park Road.","city":"Suzhou, Jiangsu","country":"China"},"links":[{"name":"Google","url":"http://www.xxx.com"},{"name":"Baidu","url":"http://www.xxx.com"},{"name":"SoSo","url":"http://www.xxx.com"}]}';
 
   const jsData = `
       (() => {
@@ -84,11 +89,11 @@
       function showData() {
         if (unref(modeValue) === 'application/json') {
           Modal.info({
-            title: '编辑器当前值',
+            title: 'Editor current value',
             content: h(JsonPreview, { data: JSON.parse(value.value) }),
           });
         } else {
-          Modal.info({ title: '编辑器当前值', content: value.value });
+          Modal.info({ title: 'Editor current value', content: value.value });
         }
       }
 

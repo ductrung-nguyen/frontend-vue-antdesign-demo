@@ -1,8 +1,8 @@
 <template>
-  <PageWrapper title="导出示例" content="根据数组格式的数据进行导出">
-    <BasicTable title="基础表格" :columns="columns" :dataSource="data">
+  <PageWrapper title="Export example" content="Export from data in array format">
+    <BasicTable title="Basic form" :columns="columns" :dataSource="data">
       <template #toolbar>
-        <a-button @click="aoaToExcel"> 导出 </a-button>
+        <a-button @click="aoaToExcel"> Export </a-button>
       </template>
     </BasicTable>
   </PageWrapper>
@@ -19,11 +19,11 @@
     components: { BasicTable, PageWrapper },
     setup() {
       function aoaToExcel() {
-        // 保证data顺序与header一致
+        // Ensure that the data order is consistent with the header
         aoaToSheetXlsx({
           data: arrData,
           header: arrHeader,
-          filename: '二维数组方式导出excel.xlsx',
+          filename: 'data.xlsx',
         });
       }
 

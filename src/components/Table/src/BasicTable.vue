@@ -167,7 +167,7 @@
       function handleTableChange(...args) {
         onTableChange.call(undefined, ...args);
         emit('change', ...args);
-        // 解决通过useTable注册onChange时不起作用的问题
+        // Solve the problem that onChange does not work when registering through useTable
         const { onChange } = unref(getProps);
         onChange && isFunction(onChange) && onChange.call(undefined, ...args);
       }

@@ -1,10 +1,10 @@
 <template>
-  <PageWrapper title="动画组件示例">
+  <PageWrapper title="Animation component example">
     <div class="flex">
       <Select
         :options="options"
         v-model:value="value"
-        placeholder="选择动画"
+        placeholder="Select animation"
         :style="{ width: '150px' }"
       />
       <a-button type="primary" class="ml-4" @click="start"> start </a-button>

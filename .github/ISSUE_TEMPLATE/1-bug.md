@@ -7,10 +7,6 @@ assignees: ''
 ---
 
 <!--
-抱歉，您遇到了一个错误。感谢您抽出宝贵的时间进行举报！
-
-请尽可能填写以下模板。
-
 Ouch, sorry you’ve run into a bug.  Thank for taking the time to report it!
 
 Please fill in as much of the template below as you’re able.

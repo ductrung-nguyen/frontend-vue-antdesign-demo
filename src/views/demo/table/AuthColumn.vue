@@ -5,45 +5,47 @@
         <TableAction
           :actions="[
             {
-              label: '编辑',
+              label: 'Edit',
               onClick: handleEdit.bind(null, record),
-              auth: 'other', // 根据权限控制是否显示: 无权限，不显示
+              auth: 'other', // Whether to display according to permission control: no permission, no display
             },
             {
-              label: '删除',
+              label: 'Delete',
               icon: 'ic:outline-delete-outline',
               onClick: handleDelete.bind(null, record),
-              auth: 'super', // 根据权限控制是否显示: 有权限，会显示
+              auth: 'super', // Whether to display according to permission control: with permission, it will be displayed
             },
           ]"
           :dropDownActions="[
             {
-              label: '启用',
+              label: 'Enable',
               popConfirm: {
-                title: '是否启用？',
+                title: 'Whether to enable?',
                 confirm: handleOpen.bind(null, record),
               },
               ifShow: (_action) => {
-                return record.status !== 'enable'; // 根据业务控制是否显示: 非enable状态的不显示启用按钮
+                return record.status !== 'enable';
+                // Whether it is displayed according to the business control:
+                // the enable button is not displayed in the non-enable state
               },
             },
             {
-              label: '禁用',
+              label: 'Disabled',
               popConfirm: {
-                title: '是否禁用？',
+                title: 'Disable?',
                 confirm: handleOpen.bind(null, record),
               },
               ifShow: () => {
-                return record.status === 'enable'; // 根据业务控制是否显示: enable状态的显示禁用按钮
+                return record.status === 'enable'; // Whether to display according to business control: display disable button in enable state
               },
             },
             {
-              label: '同时控制',
+              label: 'Simultaneous control',
               popConfirm: {
-                title: '是否动态显示？',
+                title: 'Is it displayed dynamically?',
                 confirm: handleOpen.bind(null, record),
               },
-              auth: 'super', // 同时根据权限和业务控制是否显示
+              auth: 'super', // At the same time, whether to display according to permissions and business control
               ifShow: () => {
                 return true;
               },
@@ -61,33 +63,33 @@
   import { demoListApi } from '/@/api/demo/table';
   const columns: BasicColumn[] = [
     {
-      title: '编号',
+      title: 'Numbering',
       dataIndex: 'no',
       width: 100,
     },
     {
-      title: '姓名',
+      title: 'Name',
       dataIndex: 'name',
-      auth: 'test', // 根据权限控制是否显示: 无权限，不显示
+      auth: 'test', // Whether to display according to permission control: no permission, no display
     },
     {
-      title: '状态',
+      title: 'Status',
       dataIndex: 'status',
     },
     {
-      title: '地址',
+      title: 'Address',
       dataIndex: 'address',
-      auth: 'super', // 同时根据权限和业务控制是否显示
+      auth: 'super', // At the same time, whether to display according to permissions and business control
       ifShow: (_column) => {
         return true;
       },
     },
     {
-      title: '开始时间',
+      title: 'Starting time',
       dataIndex: 'beginTime',
     },
     {
-      title: '结束时间',
+      title: 'End Time',
       dataIndex: 'endTime',
       width: 200,
     },
@@ -96,7 +98,7 @@
     components: { BasicTable, TableAction },
     setup() {
       const [registerTable] = useTable({
-        title: 'TableAction组件及固定列示例',
+        title: 'TableAction component and fixed column example',
         api: demoListApi,
         columns: columns,
         bordered: true,
@@ -108,13 +110,13 @@
         },
       });
       function handleEdit(record: Recordable) {
-        console.log('点击了编辑', record);
+        console.log('Clicked "Edit"', record);
       }
       function handleDelete(record: Recordable) {
-        console.log('点击了删除', record);
+        console.log('Clicked "Delete"', record);
       }
       function handleOpen(record: Recordable) {
-        console.log('点击了启用', record);
+        console.log('Click to enable', record);
       }
       return {
         registerTable,

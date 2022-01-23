@@ -3,44 +3,44 @@ import { resultSuccess, resultError } from '../_util';
 import { ResultEnum } from '../../src/enums/httpEnum';
 
 const userInfo = {
-  name: 'Vben',
+  name: 'admin',
   userid: '00000001',
   email: 'test@gmail.com',
-  signature: '海纳百川，有容乃大',
-  introduction: '微笑着，努力着，欣赏着',
-  title: '交互专家',
-  group: '某某某事业群－某某平台部－某某技术部－UED',
+  signature: 'Nothing is impossible',
+  introduction: 'Enthusiasm, Optimistic',
+  title: 'Interaction expert ',
+  group: 'Business - Platform - Technology - UED',
   tags: [
     {
       key: '0',
-      label: '很有想法的',
+      label: 'Very thoughtful',
     },
     {
       key: '1',
-      label: '专注设计',
+      label: 'Focus on design',
     },
     {
       key: '2',
-      label: '辣~',
+      label: 'Spicy',
     },
     {
       key: '3',
-      label: '大长腿',
+      label: 'Long legs',
     },
     {
       key: '4',
-      label: '川妹子',
+      label: 'Spicy food',
     },
     {
       key: '5',
-      label: '海纳百川',
+      label: 'All rivers',
     },
   ],
   notifyCount: 12,
   unreadCount: 11,
-  country: 'China',
-  address: 'Xiamen City 77',
-  phone: '0592-268888888',
+  country: 'France',
+  address: 'Paris',
+  phone: '061-234567890',
 };
 
 export default [

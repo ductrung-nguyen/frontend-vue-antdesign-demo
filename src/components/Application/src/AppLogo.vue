@@ -10,10 +10,11 @@
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
-  import { computed, unref } from 'vue';
+  import { computed } from 'vue';
   import { useGlobSetting } from '/@/hooks/setting';
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { PageEnum } from '/@/enums/pageEnum';
@@ -38,12 +39,12 @@
   const { getCollapsedShowTitle } = useMenuSetting();
   const userStore = useUserStore();
   const { title } = useGlobSetting();
-  const go = useGo();
+  const navigateTo = useNavigator();
 
   const getAppLogoClass = computed(() => [
     prefixCls,
     props.theme,
-    { 'collapsed-show-title': unref(getCollapsedShowTitle) },
+    { 'collapsed-show-title': getCollapsedShowTitle.value },
   ]);
 
   const getTitleClass = computed(() => [
@@ -54,7 +55,7 @@
   ]);
 
   function goHome() {
-    go(userStore.getUserInfo.homePath || PageEnum.BASE_HOME);
+    navigateTo(userStore.getUserInfo.homePath || PageEnum.BASE_HOME);
   }
 </script>
 <style lang="less" scoped>

@@ -1,6 +1,8 @@
 <template>
-  <PageWrapper title="Icon组件示例">
-    <CollapseContainer title="Antv Icon使用 (直接按需引入相应组件即可)">
+  <PageWrapper title="Icon component example">
+    <CollapseContainer
+      title="Antv Icon use (you can directly introduce the corresponding components as needed)"
+    >
       <div class="flex justify-around">
         <GithubFilled :style="{ fontSize: '30px' }" />
         <QqCircleFilled :style="{ fontSize: '30px' }" />
@@ -12,7 +14,7 @@
       </div>
     </CollapseContainer>
 
-    <CollapseContainer title="IconIfy 组件使用" class="my-5">
+    <CollapseContainer title="IconIfy component uses" class="my-5">
       <div class="flex justify-around flex-wrap">
         <Icon icon="ion:layers-outline" :size="30" />
         <Icon icon="ion:bar-chart-outline" :size="30" />
@@ -21,7 +23,7 @@
       </div>
     </CollapseContainer>
 
-    <CollapseContainer title="svg 雪碧图" class="my-5">
+    <CollapseContainer title="svg sprite figure" class="my-5">
       <div class="flex justify-around flex-wrap">
         <SvgIcon name="test" size="32" />
         <template v-for="item in 6" :key="item">
@@ -30,13 +32,13 @@
       </div>
     </CollapseContainer>
 
-    <CollapseContainer title="图标选择器(Iconify)" class="my-5">
+    <CollapseContainer title="Icon Picker (Iconify)" class="my-5">
       <div class="flex justify-around flex-wrap">
         <IconPicker />
       </div>
     </CollapseContainer>
 
-    <CollapseContainer title="图标选择器(Svg)" class="my-5">
+    <CollapseContainer title="Icon Picker (Svg)" class="my-5">
       <div class="flex justify-around flex-wrap">
         <IconPicker mode="svg" />
       </div>
@@ -44,10 +46,10 @@
 
     <Alert
       show-icon
-      message="推荐使用Iconify组件"
-      description="Icon组件基本包含所有的图标,在下面网址内你可以查询到你想要的任何图标。并且打包只会打包所用到的图标。"
+      message="Iconify component is recommended"
+      description="The Icon component basically contains all the icons, you can find any icon you want in the following URL. And packaging will only package the icons used."
     />
-    <a-button type="link" @click="toIconify"> Iconify 图标大全 </a-button>
+    <a-button type="link" @click="toIconify"> Iconify icon collection </a-button>
   </PageWrapper>
 </template>
 <script lang="ts">

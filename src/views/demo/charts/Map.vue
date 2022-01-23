@@ -33,7 +33,7 @@
               max: 1000,
               left: 'left',
               top: 'bottom',
-              text: ['高', '低'],
+              text: ['high', 'low'],
               calculable: false,
               orient: 'horizontal',
               inRange: {

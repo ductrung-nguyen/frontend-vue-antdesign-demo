@@ -2,7 +2,7 @@
   <div>
     <BasicTable @register="registerTable" @fetch-success="onFetchSuccess">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增菜单 </a-button>
+        <a-button type="primary" @click="handleCreate"> Add menu </a-button>
       </template>
       <template #action="{ record }">
         <TableAction
@@ -15,7 +15,7 @@
               icon: 'ant-design:delete-outlined',
               color: 'error',
               popConfirm: {
-                title: '是否确认删除',
+                title: 'Are you sure to delete',
                 confirm: handleDelete.bind(null, record),
               },
             },
@@ -43,7 +43,7 @@
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload, expandAll }] = useTable({
-        title: '菜单列表',
+        title: 'Menu list',
         api: getMenuList,
         columns,
         formConfig: {
@@ -60,7 +60,7 @@
         canResize: false,
         actionColumn: {
           width: 80,
-          title: '操作',
+          title: 'Operation',
           dataIndex: 'action',
           slots: { customRender: 'action' },
           fixed: undefined,
@@ -89,7 +89,7 @@
       }
 
       function onFetchSuccess() {
-        // 演示默认展开所有表项
+        // Demonstrate that all table items are expanded by default
         nextTick(expandAll);
       }
 

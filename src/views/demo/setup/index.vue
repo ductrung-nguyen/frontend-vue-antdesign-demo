@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="引导页" content="用于给用户的指引操作">
-    <a-button type="primary" @click="handleStart">开始</a-button>
+  <PageWrapper title="Guide pages" content="Instructions for the user">
+    <a-button type="primary" @click="handleStart">Start</a-button>
   </PageWrapper>
 </template>
 <script lang="ts">

@@ -1,21 +1,25 @@
 <template>
-  <PageWrapper title="Tree函数操作示例">
+  <PageWrapper title="Tree function operation example">
     <Row :gutter="[16, 16]">
       <Col :span="8">
         <BasicTree
-          title="右侧操作按钮/自定义图标"
-          helpMessage="帮助信息"
+          title="Right Action Button/Custom Icon"
+          helpMessage="Help information"
           :treeData="treeData"
           :actionList="actionList"
           :renderIcon="createIcon"
         />
       </Col>
       <Col :span="8">
-        <BasicTree title="右键菜单" :treeData="treeData" :beforeRightClick="getRightMenuList" />
+        <BasicTree
+          title="Right-click menu"
+          :treeData="treeData"
+          :beforeRightClick="getRightMenuList"
+        />
       </Col>
       <Col :span="8">
         <BasicTree
-          title="工具栏使用"
+          title="Toolbar usage"
           toolbar
           checkable
           search
@@ -24,24 +28,28 @@
         />
       </Col>
       <Col :span="8">
-        <BasicTree title="没有fieldNames，插槽有效" helpMessage="正确的示例" :treeData="treeData3">
-          <template #title="item"> 插槽：{{ item.name }} </template>
+        <BasicTree
+          title="Slot works without fieldNames"
+          helpMessage="Correct example"
+          :treeData="treeData3"
+        >
+          <template #title="item"> Slot: {{ item.name }} </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
-          title="有fieldNames后，插槽失效"
-          helpMessage="错误的示例, 应该显示插槽的内容才对"
+          title="After having fieldNames, the slot is invalid"
+          helpMessage="Incorrect example, should show the contents of the slot"
           :fieldNames="{ key: 'id', title: 'name' }"
           :treeData="treeData2"
         >
-          <template #title="item"> 插槽：{{ item.title }} </template>
+          <template #title="item"> Slot:{{ item.title }} </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
-          title="有fieldNames后，actionList失效"
-          helpMessage="错误的示例，应该在鼠标移上去时，显示新增和删除按钮才对"
+          title="After there are fieldNames, actionList is invalid"
+          helpMessage="Incorrect example, the add and delete buttons should be displayed when the mouse is moved up"
           :treeData="treeData3"
           :actionList="actionList"
           :fieldNames="{ key: 'key', title: 'name' }"
@@ -68,16 +76,16 @@
       function getRightMenuList(node: any): ContextMenuItem[] {
         return [
           {
-            label: '新增',
+            label: 'New',
             handler: () => {
-              console.log('点击了新增', node);
+              console.log('Click to add', node);
             },
             icon: 'bi:plus',
           },
           {
-            label: '删除',
+            label: 'Delete',
             handler: () => {
-              console.log('点击了删除', node);
+              console.log('Clicked delete', node);
             },
             icon: 'bx:bxs-folder-open',
           },

@@ -1,14 +1,18 @@
 <template>
-  <PageWrapper title="Tree基础示例">
+  <PageWrapper title="Tree basic example">
     <Row :gutter="[16, 16]">
       <Col :span="8">
-        <BasicTree title="基础示例，默认展开第一层" :treeData="treeData" defaultExpandLevel="1">
+        <BasicTree
+          title="Basic example, the first layer is expanded by default"
+          :treeData="treeData"
+          defaultExpandLevel="1"
+        >
           <template #title> 123123 </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
-          title="可勾选，默认全部展开"
+          title="Can be checked, all expanded by default"
           :treeData="treeData"
           :checkable="true"
           defaultExpandAll
@@ -17,7 +21,7 @@
       </Col>
       <Col :span="8">
         <BasicTree
-          title="指定默认展开/勾选示例"
+          title="Specify default expand/tick example"
           :treeData="treeData"
           :checkable="true"
           :expandedKeys="['0-0']"
@@ -26,16 +30,16 @@
       </Col>
       <Col :span="8">
         <BasicTree
-          title="懒加载异步树"
+          title="Lazy load async tree"
           ref="asyncTreeRef"
           :treeData="tree"
           :load-data="onLoadData"
         />
       </Col>
       <Col :span="16">
-        <Card title="异步数据，默认展开">
+        <Card title="Asynchronous data, expanded by default">
           <template #extra>
-            <a-button @click="loadTreeData" :loading="treeLoading">加载数据</a-button>
+            <a-button @click="loadTreeData" :loading="treeLoading">Download Data</a-button>
           </template>
           <Spin :spinning="treeLoading">
             <BasicTree ref="asyncExpandTreeRef" :treeData="tree2" />
@@ -67,12 +71,12 @@
 
       function loadTreeData() {
         treeLoading.value = true;
-        // 以下是模拟异步获取数据
+        // The following is to simulate asynchronously fetching data
         setTimeout(() => {
-          // 设置数据源
+          // Set data source
           tree2.value = cloneDeep(treeData);
           treeLoading.value = false;
-          // 展开全部
+          // Expand All
           nextTick(() => {
             console.log(unref(asyncExpandTreeRef));
             unref(asyncExpandTreeRef)?.expandAll(true);

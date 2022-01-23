@@ -3,12 +3,12 @@
     <BasicTable @register="registerTable">
       <template #customTitle>
         <span>
-          姓名
-          <BasicHelp class="ml-2" text="姓名" />
+          Name
+          <BasicHelp class="ml-2" text="Name" />
         </span>
       </template>
       <template #customAddress>
-        地址
+        Address
         <FormOutlined class="ml-2" />
       </template>
     </BasicTable>
@@ -26,7 +26,7 @@
     components: { BasicTable, FormOutlined, BasicHelp },
     setup() {
       const [registerTable] = useTable({
-        title: '定高/头部自定义',
+        title: 'Fixed height/head customization',
         api: demoListApi,
         columns: getCustomHeaderColumns(),
         canResize: false,

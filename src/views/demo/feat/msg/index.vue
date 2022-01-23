@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper title="消息示例">
+  <PageWrapper title="Message example">
     <CollapseContainer class="w-full h-32 bg-white rounded-md" title="Message">
       <a-button @click="infoMsg('Info message')" class="mr-2"> Info </a-button>
       <a-button @click="successMsg('Success message')" class="mr-2" color="success">
@@ -28,7 +28,7 @@
 
     <CollapseContainer
       class="w-full h-32 mt-5 bg-white rounded-md"
-      title="Notification 用法与上面一致"
+      title="Notification usage is the same as above"
     >
       <a-button @click="handleNotify" color="success" class="mr-2"> Success </a-button>
     </CollapseContainer>

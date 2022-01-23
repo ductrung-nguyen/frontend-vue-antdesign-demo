@@ -66,7 +66,7 @@
           :items="childrenMenus"
           :theme="getMenuTheme"
           mixSider
-          @menuClick="handleMenuClick"
+          @menu-click="handleMenuClick"
         />
       </ScrollContainer>
       <div
@@ -92,7 +92,7 @@
   import { useGlobSetting } from '/@/hooks/setting';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useI18n } from '/@/hooks/web/useI18n';
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
   import { SIDE_BAR_MINI_WIDTH, SIDE_BAR_SHOW_TIT_MINI_WIDTH } from '/@/enums/appEnum';
   import clickOutside from '/@/directives/clickOutside';
   import { getChildrenMenus, getCurrentParentPath, getShallowMenus } from '/@/router/menus';
@@ -122,7 +122,7 @@
       const currentRoute = ref<Nullable<RouteLocationNormalized>>(null);
 
       const { prefixCls } = useDesign('layout-mix-sider');
-      const go = useGo();
+      const go = useNavigator();
       const { t } = useI18n();
       const {
         getMenuWidth,
@@ -415,9 +415,9 @@
 
     &.dark {
       &.open {
-        .@{prefix-cls}-logo {
-          // border-bottom: 1px solid @border-color;
-        }
+        // .@{prefix-cls}-logo {
+        //   // border-bottom: 1px solid @border-color;
+        // }
 
         > .scrollbar {
           border-right: 1px solid @border-color;

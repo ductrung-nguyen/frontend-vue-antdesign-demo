@@ -1,17 +1,21 @@
 <template>
   <div class="step3">
-    <a-result status="success" title="操作成功" sub-title="预计两小时内到账">
+    <a-result
+      status="success"
+      title="Successful operation"
+      sub-title="Expected to arrive within two hours"
+    >
       <template #extra>
-        <a-button type="primary" @click="redo"> 再转一笔 </a-button>
-        <a-button> 查看账单 </a-button>
+        <a-button type="primary" @click="redo"> another round </a-button>
+        <a-button> View Bill </a-button>
       </template>
     </a-result>
     <div class="desc-wrap">
       <a-descriptions :column="1" class="mt-5">
-        <a-descriptions-item label="付款账户"> ant-design@alipay.com </a-descriptions-item>
-        <a-descriptions-item label="收款账户"> test@example.com </a-descriptions-item>
-        <a-descriptions-item label="收款人姓名"> Vben </a-descriptions-item>
-        <a-descriptions-item label="转账金额"> 500元 </a-descriptions-item>
+        <a-descriptions-item label="Payment Account"> ant-design@alipay.com </a-descriptions-item>
+        <a-descriptions-item label="Receiving account"> test@example.com </a-descriptions-item>
+        <a-descriptions-item label="Payee Name"> Vben </a-descriptions-item>
+        <a-descriptions-item label="transfer amount"> 500 yuan </a-descriptions-item>
       </a-descriptions>
     </div>
   </div>

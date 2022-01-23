@@ -5,8 +5,8 @@
         <template #fac="{ model, field }">
           <a-input-group compact>
             <a-select v-model:value="model['pay']" class="pay-select">
-              <a-select-option value="zfb"> 支付宝 </a-select-option>
-              <a-select-option value="yl"> 银联 </a-select-option>
+              <a-select-option value="zfb"> Alipay </a-select-option>
+              <a-select-option value="yl"> UnionPay </a-select-option>
             </a-select>
             <a-input class="pay-input" v-model:value="model[field]" />
           </a-input-group>
@@ -14,15 +14,17 @@
       </BasicForm>
     </div>
     <a-divider />
-    <h3>说明</h3>
-    <h4>转账到支付宝账户</h4>
+    <h3>Description</h3>
+    <h4>Transfer to Alipay account</h4>
     <p>
-      如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。
+      If needed, here are some FAQs about the product. If needed, here are some FAQs about the
+      product. If needed, here are some FAQs about the product.
     </p>
 
-    <h4>转账到银行卡</h4>
+    <h4>Transfer to bank card</h4>
     <p>
-      如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。
+      If needed, here are some FAQs about the product. If needed, here are some FAQs about the
+      product. If needed, here are some FAQs about the product.
     </p>
   </div>
 </template>
@@ -51,7 +53,7 @@
         },
         showResetButton: false,
         submitButtonOptions: {
-          text: '下一步',
+          text: 'Next step',
         },
         submitFunc: customSubmitFunc,
       });

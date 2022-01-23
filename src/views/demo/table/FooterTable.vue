@@ -20,19 +20,19 @@
         }, 0);
         return [
           {
-            _row: '合计',
-            _index: '平均值',
+            _row: 'Total',
+            _index: 'Average value',
             no: totalNo,
           },
           {
-            _row: '合计',
-            _index: '平均值',
+            _row: 'Total',
+            _index: 'Average value',
             no: totalNo,
           },
         ];
       }
       const [registerTable] = useTable({
-        title: '表尾行合计示例',
+        title: 'Example of footer row totals',
         api: demoListApi,
         rowSelection: { type: 'checkbox' },
         columns: getBasicColumns(),

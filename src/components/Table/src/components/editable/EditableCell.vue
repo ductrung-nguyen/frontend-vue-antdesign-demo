@@ -24,7 +24,7 @@
           ref="elRef"
           @change="handleChange"
           @options-change="handleOptionsChange"
-          @pressEnter="handleEnter"
+          @press-enter="handleEnter"
         />
         <div :class="`${prefixCls}__action`" v-if="!getRowEditable">
           <CheckOutlined :class="[`${prefixCls}__icon`, 'mx-2']" @click="handleSubmitClick" />

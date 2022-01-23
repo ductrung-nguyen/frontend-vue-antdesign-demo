@@ -1,5 +1,5 @@
 import type { Router, RouteLocationNormalized } from 'vue-router';
-import { useAppStoreWithOut } from '/@/store/modules/app';
+import { useAppStoreWithoutSetupScript } from '/@/store/modules/app';
 import { useUserStoreWithOut } from '/@/store/modules/user';
 import { useTransitionSetting } from '/@/hooks/setting/useTransitionSetting';
 import { AxiosCanceler } from '/@/utils/http/axios/axiosCancel';
@@ -33,7 +33,7 @@ function createPageGuard(router: Router) {
   const loadedPageMap = new Map<string, boolean>();
 
   router.beforeEach(async (to) => {
-    // The page has already been loaded, it will be faster to open it again, you don’t need to do loading and other processing
+    // The page has already been loaded, it will be faster to open it again, you don't need to do loading and other processing
     to.meta.loaded = !!loadedPageMap.get(to.path);
     // Notify routing changes
     setRouteChange(to);
@@ -49,7 +49,7 @@ function createPageGuard(router: Router) {
 // Used to handle page loading status
 function createPageLoadingGuard(router: Router) {
   const userStore = useUserStoreWithOut();
-  const appStore = useAppStoreWithOut();
+  const appStore = useAppStoreWithoutSetupScript();
   const { getOpenPageLoading } = useTransitionSetting();
   router.beforeEach(async (to) => {
     if (!userStore.getToken) {

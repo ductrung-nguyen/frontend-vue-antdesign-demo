@@ -1,16 +1,16 @@
 <template>
-  <CollapseContainer title="基本设置" :canExpan="false">
+  <CollapseContainer title="Basic settings" :canExpan="false">
     <a-row :gutter="24">
       <a-col :span="14">
         <BasicForm @register="register" />
       </a-col>
       <a-col :span="10">
         <div class="change-avatar">
-          <div class="mb-2">头像</div>
+          <div class="mb-2">avatar</div>
           <CropperAvatar
             :uploadApi="uploadApi"
             :value="avatar"
-            btnText="更换头像"
+            btnText="Change avatar"
             :btnProps="{ preIcon: 'ant-design:cloud-upload-outlined' }"
             @change="updateAvatar"
             width="150"
@@ -18,7 +18,7 @@
         </div>
       </a-col>
     </a-row>
-    <Button type="primary" @click="handleSubmit"> 更新基本信息 </Button>
+    <Button type="primary" @click="handleSubmit"> Update basic info </Button>
   </CollapseContainer>
 </template>
 <script lang="ts">
@@ -77,7 +77,7 @@
         uploadApi: uploadApi as any,
         updateAvatar,
         handleSubmit: () => {
-          createMessage.success('更新成功！');
+          createMessage.success('Update successful!');
         },
       };
     },

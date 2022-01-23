@@ -1,10 +1,13 @@
 <template>
-  <PageWrapper title="可折叠表单示例">
-    <CollapseContainer title="基础收缩示例">
+  <PageWrapper title="Collapsible form example">
+    <CollapseContainer title="Base Shrink Example">
       <BasicForm @register="register" />
     </CollapseContainer>
 
-    <CollapseContainer title="超过3行自动收起，折叠时保留2行" class="mt-4">
+    <CollapseContainer
+      title="More than 3 rows are automatically folded, and 2 rows are retained when folded"
+      class="mt-4"
+    >
       <BasicForm @register="register1" />
     </CollapseContainer>
   </PageWrapper>
@@ -20,12 +23,12 @@
       {
         field: 'field1',
         component: 'Input',
-        label: '字段1',
+        label: 'field 1',
         colProps: {
           span: 8,
         },
         componentProps: {
-          placeholder: '自定义placeholder',
+          placeholder: 'Custom placeholder',
           onChange: (e: any) => {
             console.log(e);
           },
@@ -34,7 +37,7 @@
       {
         field: 'field2',
         component: 'Input',
-        label: '字段2',
+        label: 'Field 2',
         colProps: {
           span: 8,
         },
@@ -42,7 +45,7 @@
       {
         field: 'field3',
         component: 'DatePicker',
-        label: '字段3',
+        label: 'Field 3',
         colProps: {
           span: 8,
         },
@@ -50,19 +53,19 @@
       {
         field: 'field4',
         component: 'Select',
-        label: '字段4',
+        label: 'field 4',
         colProps: {
           span: 8,
         },
         componentProps: {
           options: [
             {
-              label: '选项1',
+              label: 'Option 1',
               value: '1',
               key: '1',
             },
             {
-              label: '选项2',
+              label: 'Option 2',
               value: '2',
               key: '2',
             },
@@ -72,18 +75,18 @@
       {
         field: 'field5',
         component: 'CheckboxGroup',
-        label: '字段5',
+        label: 'Field 5',
         colProps: {
           span: 8,
         },
         componentProps: {
           options: [
             {
-              label: '选项1',
+              label: 'Option 1',
               value: '1',
             },
             {
-              label: '选项2',
+              label: 'Option 2',
               value: '2',
             },
           ],
@@ -92,18 +95,18 @@
       // {
       //   field: 'field7',
       //   component: 'RadioGroup',
-      //   label: '字段7',
+      //   label: 'Field 7',
       //   colProps: {
       //     span: 8,
       //   },
       //   componentProps: {
       //     options: [
       //       {
-      //         label: '选项1',
+      //         label: 'Option 1',
       //         value: '1',
       //       },
       //       {
-      //         label: '选项2',
+      //         label: 'Option 2',
       //         value: '2',
       //       },
       //     ],
@@ -117,7 +120,7 @@
       {
         field: 'field10',
         component: 'Input',
-        label: '字段10',
+        label: 'Field 10',
         colProps: {
           span: 8,
         },
@@ -125,7 +128,7 @@
       {
         field: 'field11',
         component: 'Input',
-        label: '字段11',
+        label: 'Field 11',
         colProps: {
           span: 8,
         },
@@ -133,7 +136,7 @@
       {
         field: 'field12',
         component: 'Input',
-        label: '字段12',
+        label: 'Field 12',
         colProps: {
           span: 8,
         },
@@ -141,7 +144,7 @@
       {
         field: 'field13',
         component: 'Input',
-        label: '字段13',
+        label: 'Field 13',
         colProps: {
           span: 8,
         },
@@ -165,7 +168,7 @@
         extraSchemas.push({
           field: 'field' + i,
           component: 'Input',
-          label: '字段' + i,
+          label: 'Field' + i,
           colProps: {
             span: 8,
           },
@@ -176,7 +179,7 @@
         schemas: [
           ...getSchamas(),
           ...getAppendSchemas(),
-          { field: '', component: 'Divider', label: '更多字段' },
+          { field: '', component: 'Divider', label: 'More fields' },
           ...extraSchemas,
         ],
         actionColOptions: {

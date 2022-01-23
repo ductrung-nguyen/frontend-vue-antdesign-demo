@@ -10,10 +10,10 @@
                 {{ item.title }}
               </div>
               <div :class="`${prefixCls}__card-num`">
-                活跃用户：<span>{{ item.active }}</span> 万
+                Active users: <span>{{ item.active }}</span> million
               </div>
               <div :class="`${prefixCls}__card-num`">
-                新增用户：<span>{{ item.new }}</span>
+                New user: <span>{{ item.new }}</span>
               </div>
               <Icon
                 :class="`${prefixCls}__card-download`"

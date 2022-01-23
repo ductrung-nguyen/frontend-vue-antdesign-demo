@@ -40,7 +40,7 @@
         });
       });
 
-      const getTitle = computed(() => (!unref(isUpdate) ? '新增部门' : '编辑部门'));
+      const getTitle = computed(() => (!unref(isUpdate) ? 'Add department' : 'Edit department'));
 
       async function handleSubmit() {
         try {

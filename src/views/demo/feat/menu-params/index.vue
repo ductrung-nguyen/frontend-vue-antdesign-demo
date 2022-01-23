@@ -1,15 +1,21 @@
 <template>
-  <PageWrapper title="带参数菜单（路由）" content="支持多级参数">
-    当前参数：{{ params }}
+  <PageWrapper title="Menu with parameters (routing)" content="Support multi-level parameters">
+    Current parameters: {{ params }}
     <br />
-    输入参数切换路由：
-    <Input v-model:value="value" placeholder="建议为url标准字符，输入后点击切换" />
-    <a-button type="primary" @click="handleClickGo">切换路由</a-button>
+    Enter parameters to switch routes:
+    <Input
+      v-model:value="value"
+      placeholder="It is recommended to be a standard url character, click to switch after input"
+    />
+    <a-button type="primary" @click="handleClickGo">Switch routing</a-button>
     <br />
-    切换路由后
+    After switching routes
     <ul>
-      <li>可刷新页面测试路由参数情况是否正常。</li>
-      <li>可于左侧菜单中展开子菜单，点击测试参数是否携带正常。</li>
+      <li>You can refresh the page to test whether the routing parameters are normal. </li>
+      <li
+        >You can expand the submenu in the left menu and click to test whether the parameters are
+        carried normally.
+      </li>
     </ul>
   </PageWrapper>
 </template>

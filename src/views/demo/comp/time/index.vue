@@ -1,18 +1,18 @@
 <template>
-  <PageWrapper title="时间组件示例">
-    <CollapseContainer title="基础示例">
+  <PageWrapper title="Time Component Example">
+    <CollapseContainer title="Basic example">
       <Time :value="time1" />
       <br />
       <Time :value="time2" />
     </CollapseContainer>
 
-    <CollapseContainer title="定时更新" class="my-4">
+    <CollapseContainer title="Regular update" class="my-4">
       <Time :value="now" :step="1" />
       <br />
       <Time :value="now" :step="5" />
     </CollapseContainer>
 
-    <CollapseContainer title="定时更新">
+    <CollapseContainer title="Regular update">
       <Time :value="now" mode="date" />
       <br />
       <Time :value="now" mode="datetime" />

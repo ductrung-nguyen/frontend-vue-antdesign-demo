@@ -7,30 +7,30 @@ export const columns: BasicColumn[] = [
     width: 80,
   },
   {
-    title: '姓名',
+    title: 'Name',
     dataIndex: 'name',
     width: 120,
   },
   {
-    title: '年龄',
+    title: 'Age',
     dataIndex: 'age',
     width: 80,
   },
   {
-    title: '编号',
+    title: 'Number',
     dataIndex: 'no',
     width: 80,
   },
   {
-    title: '地址',
+    title: 'Address',
     dataIndex: 'address',
   },
   {
-    title: '开始时间',
+    title: 'Starting time',
     dataIndex: 'beginTime',
   },
   {
-    title: '结束时间',
+    title: 'End Time',
     dataIndex: 'endTime',
   },
 ];
@@ -51,9 +51,9 @@ export const data: any[] = (() => {
   return arr;
 })();
 
-// ["ID", "姓名", "年龄", "编号", "地址", "开始时间", "结束时间"]
+// ["ID", "Name", "Age", "Number", "Address", "Start Time", "End Time"]
 export const arrHeader = columns.map((column) => column.title);
-// [["ID", "姓名", "年龄", "编号", "地址", "开始时间", "结束时间"],["0", "0 John Brown", "10", "098678"]]
+// [["ID", "Name", "Age", "Number", "Address", "Start Time", "End Time"],["0", "0 John Brown", "10", "098678"]]
 export const arrData = data.map((item) => {
   return Object.keys(item).map((key) => item[key]);
 });

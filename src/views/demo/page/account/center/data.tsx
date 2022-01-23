@@ -11,44 +11,44 @@ export interface TabItem {
 }
 
 export const tags: string[] = [
-  '很有想法的',
-  '专注设计',
-  '川妹子',
-  '大长腿',
-  '海纳百川',
-  '前端开发',
+  'very thoughtful',
+  'Focus on design',
+  'Sichuan girl',
+  'big legs',
+  'The sea contains hundreds of rivers',
+  'Front-end development',
   'vue3',
 ];
 <span class="iconify" data-icon="jam:codepen-circle" data-inline="false"></span>;
 export const teams: ListItem[] = [
   {
     icon: 'ri:alipay-fill',
-    title: '科学搬砖组',
+    title: 'Science moving bricks group',
     color: '#ff4000',
   },
   {
     icon: 'emojione-monotone:letter-a',
-    title: '中二少年团',
+    title: 'Secondary Two Youth League',
     color: '#7c51b8',
   },
   {
     icon: 'ri:alipay-fill',
-    title: '高逼格设计',
+    title: 'High-quality design',
     color: '#00adf7',
   },
   {
     icon: 'jam:codepen-circle',
-    title: '程序员日常',
+    title: "Programmer's Day",
     color: '#00adf7',
   },
   {
     icon: 'fa:behance-square',
-    title: '科学搬砖组',
+    title: 'Science moving bricks group',
     color: '#7c51b8',
   },
   {
     icon: 'jam:codepen-circle',
-    title: '程序员日常',
+    title: "Programmer's Day",
     color: '#ff4000',
   },
 ];
@@ -56,32 +56,32 @@ export const teams: ListItem[] = [
 export const details: ListItem[] = [
   {
     icon: 'ic:outline-contacts',
-    title: '交互专家',
+    title: 'Interaction expert',
   },
   {
     icon: 'grommet-icons:cluster',
-    title: '某某某事业群',
+    title: 'Business group',
   },
   {
     icon: 'bx:bx-home-circle',
-    title: '福建省厦门市',
+    title: 'Nice, France',
   },
 ];
 
 export const achieveList: TabItem[] = [
   {
     key: '1',
-    name: '文章',
+    name: 'article',
     component: 'Article',
   },
   {
     key: '2',
-    name: '应用',
+    name: 'application',
     component: 'Application',
   },
   {
     key: '3',
-    name: '项目',
+    name: 'project',
     component: 'Project',
   },
 ];
@@ -96,9 +96,10 @@ export const articleList = (() => {
   const result: any[] = [];
   for (let i = 0; i < 4; i++) {
     result.push({
-      title: 'Vben Admin',
-      description: ['Vben', '设计语言', 'Typescript'],
-      content: '基于Vue Next, TypeScript, Ant Design实现的一套完整的企业级后台管理系统。',
+      title: 'Vue Admin',
+      description: ['Vue', 'design language', 'Typescript'],
+      content:
+        'A complete set of enterprise-level background management system based on Vue Next, TypeScript, Ant Design.',
       time: '2020-11-14 11:20',
     });
   }
@@ -109,7 +110,7 @@ export const applicationList = (() => {
   const result: any[] = [];
   for (let i = 0; i < 8; i++) {
     result.push({
-      title: 'Vben Admin',
+      title: 'Vue Admin',
       icon: 'emojione-monotone:letter-a',
       color: '#1890ff',
       active: '100',
@@ -124,8 +125,9 @@ export const projectList = (() => {
   const result: any[] = [];
   for (let i = 0; i < 8; i++) {
     result.push({
-      title: 'Vben Admin',
-      content: '基于Vue Next, TypeScript, Ant Design实现的一套完整的企业级后台管理系统。',
+      title: 'Vue Admin',
+      content:
+        'A complete set of enterprise-level background management system based on Vue Next, TypeScript, Ant Design.',
     });
   }
   return result;

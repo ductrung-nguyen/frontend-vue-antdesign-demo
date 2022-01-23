@@ -22,23 +22,23 @@
       const { setOptions } = useECharts(chartRef as Ref<HTMLDivElement>);
       const dataAll = [389, 259, 262, 324, 232, 176, 196, 214, 133, 370];
       const yAxisData = [
-        '原因1',
-        '原因2',
-        '原因3',
-        '原因4',
-        '原因5',
-        '原因6',
-        '原因7',
-        '原因8',
-        '原因9',
-        '原因10',
+        'Reason 1',
+        'Reason 2',
+        'Reason 3',
+        'Reason 4',
+        'Reason 5',
+        'Reason 6',
+        'Reason 7',
+        'Reason 8',
+        'Reason 9',
+        'Reason 10',
       ];
       onMounted(() => {
         setOptions({
           backgroundColor: '#0f375f',
           title: [
             {
-              text: '各渠道投诉占比',
+              text: 'Proportion of complaints by channel',
               left: '2%',
               top: '1%',
               textStyle: {
@@ -47,7 +47,7 @@
               },
             },
             {
-              text: '投诉原因TOP10',
+              text: 'TOP10 Reason',
               left: '40%',
               top: '1%',
               textStyle: {
@@ -56,7 +56,7 @@
               },
             },
             {
-              text: '各级别投诉占比',
+              text: 'Proportion of complaints at all levels ',
               left: '2%',
               top: '50%',
               textStyle: {
@@ -91,16 +91,16 @@
           ],
           series: [
             {
-              name: '各渠道投诉占比',
+              name: 'Proportion of complaints by channel',
               type: 'pie',
               radius: '30%',
               center: ['22%', '25%'],
               data: [
-                { value: 335, name: '客服电话' },
-                { value: 310, name: '奥迪官网' },
-                { value: 234, name: '媒体曝光' },
-                { value: 135, name: '质检总局' },
-                { value: 105, name: '其他' },
+                { value: 335, name: 'Customer service phone' },
+                { value: 310, name: 'Audi official website' },
+                { value: 234, name: 'Media exposure' },
+                { value: 135, name: 'AQSIQ' },
+                { value: 105, name: 'other' },
               ],
               labelLine: { show: false },
               label: {
@@ -110,16 +110,16 @@
               },
             },
             {
-              name: '各级别投诉占比',
+              name: 'Proportion of complaints at all levels',
               type: 'pie',
               radius: '30%',
               center: ['22%', '75%'],
               labelLine: { show: false },
               data: [
-                { value: 335, name: 'A级' },
-                { value: 310, name: 'B级' },
-                { value: 234, name: 'C级' },
-                { value: 135, name: 'D级' },
+                { value: 335, name: 'Class A' },
+                { value: 310, name: 'Class B' },
+                { value: 234, name: 'Class C' },
+                { value: 135, name: 'Class D' },
               ],
               label: {
                 show: true,
@@ -128,7 +128,7 @@
               },
             },
             {
-              name: '投诉原因TOP10',
+              name: 'TOP10 Complaint reasons',
               type: 'bar',
               xAxisIndex: 0,
               yAxisIndex: 0,

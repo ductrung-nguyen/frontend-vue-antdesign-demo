@@ -1,7 +1,7 @@
 import type { Menu, MenuModule } from '/@/router/types';
 import type { RouteRecordNormalized } from 'vue-router';
 
-import { useAppStoreWithOut } from '/@/store/modules/app';
+import { useAppStoreWithoutSetupScript } from '/@/store/modules/app';
 import { usePermissionStore } from '/@/store/modules/permission';
 import { transformMenuModule, getAllParentPath } from '/@/router/helper/menuHelper';
 import { filter } from '/@/utils/helper/treeHelper';
@@ -25,7 +25,7 @@ Object.keys(modules).forEach((key) => {
 // ===========================
 
 const getPermissionMode = () => {
-  const appStore = useAppStoreWithOut();
+  const appStore = useAppStoreWithoutSetupScript();
   return appStore.getProjectConfig.permissionMode;
 };
 const isBackMode = () => {

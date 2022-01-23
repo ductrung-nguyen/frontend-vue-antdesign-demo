@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper title="旋转校验示例">
+  <PageWrapper title="Rotation check example">
     <div class="flex justify-center p-4 items-center bg-gray-700">
       <RotateDragVerify :src="img" ref="el" @success="handleSuccess" />
     </div>

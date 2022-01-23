@@ -8,7 +8,7 @@
     :trigger="['click']"
     :dropMenuList="localeList"
     :selectedKeys="selectedKeys"
-    @menuEvent="handleMenuEvent"
+    @menu-event="handleMenuEvent"
     overlayClassName="app-locale-picker-overlay"
   >
     <span class="cursor-pointer flex items-center">
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
   import type { LocaleType } from '/#/config';
   import type { DropMenu } from '/@/components/Dropdown';
-  import { ref, watchEffect, unref, computed } from 'vue';
+  import { ref, watchEffect, computed } from 'vue';
   import { Dropdown } from '/@/components/Dropdown';
   import { Icon } from '/@/components/Icon';
   import { useLocale } from '/@/locales/useLocale';
@@ -50,7 +50,7 @@
   });
 
   watchEffect(() => {
-    selectedKeys.value = [unref(getLocale)];
+    selectedKeys.value = [getLocale.value];
   });
 
   async function toggleLocale(lang: LocaleType | string) {
@@ -60,7 +60,7 @@
   }
 
   function handleMenuEvent(menu: DropMenu) {
-    if (unref(getLocale) === menu.event) {
+    if (getLocale.value === menu.event) {
       return;
     }
     toggleLocale(menu.event as string);

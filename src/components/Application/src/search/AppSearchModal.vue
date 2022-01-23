@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, unref, ref, watch, nextTick } from 'vue';
+  import { computed, ref, watch, nextTick } from 'vue';
   import { SearchOutlined } from '@ant-design/icons-vue';
   import AppSearchFooter from './AppSearchFooter.vue';
   import Icon from '/@/components/Icon';
@@ -74,7 +74,9 @@
     visible: { type: Boolean },
   });
 
-  const emit = defineEmits(['close']);
+  const emit = defineEmits<{
+    (e: 'close'): void;
+  }>();
 
   const scrollWrap = ref(null);
   const inputRef = ref<Nullable<HTMLElement>>(null);
@@ -87,13 +89,13 @@
   const { handleSearch, searchResult, keyword, activeIndex, handleEnter, handleMouseenter } =
     useMenuSearch(refs, scrollWrap, emit);
 
-  const getIsNotData = computed(() => !keyword || unref(searchResult).length === 0);
+  const getIsNotData = computed(() => !keyword || searchResult.value.length === 0);
 
   const getClass = computed(() => {
     return [
       prefixCls,
       {
-        [`${prefixCls}--mobile`]: unref(getIsMobile),
+        [`${prefixCls}--mobile`]: getIsMobile.value,
       },
     ];
   });
@@ -103,7 +105,7 @@
     (visible: boolean) => {
       visible &&
         nextTick(() => {
-          unref(inputRef)?.focus();
+          inputRef.value?.focus();
         });
     },
   );

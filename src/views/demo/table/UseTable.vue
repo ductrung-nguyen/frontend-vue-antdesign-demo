@@ -1,20 +1,20 @@
 <template>
   <div class="p-4">
     <div class="mb-4">
-      <a-button class="mr-2" @click="reloadTable"> 还原 </a-button>
-      <a-button class="mr-2" @click="changeLoading"> 开启loading </a-button>
-      <a-button class="mr-2" @click="changeColumns"> 更改Columns </a-button>
-      <a-button class="mr-2" @click="getColumn"> 获取Columns </a-button>
-      <a-button class="mr-2" @click="getTableData"> 获取表格数据 </a-button>
-      <a-button class="mr-2" @click="getTableRawData"> 获取接口原始数据 </a-button>
-      <a-button class="mr-2" @click="setPaginationInfo"> 跳转到第2页 </a-button>
+      <a-button class="mr-2" @click="reloadTable"> Revert </a-button>
+      <a-button class="mr-2" @click="changeLoading"> Enable loading </a-button>
+      <a-button class="mr-2" @click="changeColumns"> Change Columns </a-button>
+      <a-button class="mr-2" @click="getColumn"> Get Columns </a-button>
+      <a-button class="mr-2" @click="getTableData"> Get table data </a-button>
+      <a-button class="mr-2" @click="getTableRawData"> Get interface raw data </a-button>
+      <a-button class="mr-2" @click="setPaginationInfo"> Jump to page 2 </a-button>
     </div>
     <div class="mb-4">
-      <a-button class="mr-2" @click="getSelectRowList"> 获取选中行 </a-button>
-      <a-button class="mr-2" @click="getSelectRowKeyList"> 获取选中行Key </a-button>
-      <a-button class="mr-2" @click="setSelectedRowKeyList"> 设置选中行 </a-button>
-      <a-button class="mr-2" @click="clearSelect"> 清空选中行 </a-button>
-      <a-button class="mr-2" @click="getPagination"> 获取分页信息 </a-button>
+      <a-button class="mr-2" @click="getSelectRowList"> Get the selected row </a-button>
+      <a-button class="mr-2" @click="getSelectRowKeyList"> Get the selected row Key </a-button>
+      <a-button class="mr-2" @click="setSelectedRowKeyList"> Set the selected row </a-button>
+      <a-button class="mr-2" @click="clearSelect"> Clear the selected row </a-button>
+      <a-button class="mr-2" @click="getPagination"> Get pagination information </a-button>
     </div>
     <BasicTable @register="registerTable" />
   </div>
@@ -50,8 +50,8 @@
         },
       ] = useTable({
         canResize: true,
-        title: 'useTable示例',
-        titleHelpMessage: '使用useTable调用表格内方法',
+        title: 'useTable example',
+        titleHelpMessage: 'Use useTable to call in-table methods',
         api: demoListApi,
         columns: getBasicColumns(),
         defSort: {
@@ -86,22 +86,22 @@
         });
       }
       function getColumn() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getColumns());
       }
 
       function getTableData() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getDataSource());
       }
 
       function getTableRawData() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getRawDataSource());
       }
 
       function getPagination() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getPaginationRef());
       }
 
@@ -112,11 +112,11 @@
         reload();
       }
       function getSelectRowList() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getSelectRows());
       }
       function getSelectRowKeyList() {
-        createMessage.info('请在控制台查看！');
+        createMessage.info('Check it out in the console!');
         console.log(getSelectRowKeys());
       }
       function setSelectedRowKeyList() {

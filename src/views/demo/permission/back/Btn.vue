@@ -1,58 +1,67 @@
 <template>
-  <PageWrapper contentBackground title="按钮权限控制" contentClass="p-4">
+  <PageWrapper contentBackground title="Button permission control" contentClass="p-4">
     <CurrentPermissionMode />
     <p>
-      当前拥有的code列表: <a> {{ permissionStore.getPermCodeList }} </a>
+      List of currently owned codes: <a> {{ permissionStore.getPermCodeList }} </a>
     </p>
     <Divider />
     <Alert
       class="mt-4"
       type="info"
-      message="点击后请查看按钮变化(必须处于后台权限模式才可测试此页面所展示的功能)"
+      message="Please check the button changes after clicking (you must be in background permission mode to test the functions displayed on this page)"
       show-icon
     />
     <Divider />
     <a-button type="primary" class="mr-2" @click="switchToken(2)" :disabled="!isBackPremissionMode">
-      点击切换按钮权限(用户id为2)
+      Click the toggle button permission (user id is 2)
     </a-button>
     <a-button type="primary" @click="switchToken(1)" :disabled="!isBackPremissionMode">
-      点击切换按钮权限(用户id为1,默认)
+      Click the toggle button permission (user id is 1, default)
     </a-button>
 
     <template v-if="isBackPremissionMode">
-      <Divider>组件方式判断权限</Divider>
+      <Divider>Component way to judge permissions</Divider>
       <Authority :value="'1000'">
-        <a-button type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
+        <a-button type="primary" class="mx-4"> Visible with code ['1000'] permission </a-button>
       </Authority>
 
       <Authority :value="'2000'">
-        <a-button color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
+        <a-button color="success" class="mx-4"> Visible with code ['2000'] permission </a-button>
       </Authority>
 
       <Authority :value="['1000', '2000']">
-        <a-button color="error" class="mx-4"> 拥有code ['1000','2000']角色权限可见 </a-button>
+        <a-button color="error" class="mx-4">
+          Visible with code ['1000','2000'] role permission
+        </a-button>
       </Authority>
 
-      <Divider>函数方式方式判断权限</Divider>
+      <Divider>Functional way to judge permissions</Divider>
       <a-button v-if="hasPermission('1000')" type="primary" class="mx-4">
-        拥有code ['1000']权限可见
+        Visible with code['1000'] permission
       </a-button>
 
       <a-button v-if="hasPermission('2000')" color="success" class="mx-4">
-        拥有code ['2000']权限可见
+        Visible with code['2000'] permission
       </a-button>
 
       <a-button v-if="hasPermission(['1000', '2000'])" color="error" class="mx-4">
-        拥有code ['1000','2000']角色权限可见
+        Visible with code ['1000','2000'] role permission
       </a-button>
 
-      <Divider>指令方式方式判断权限(该方式不能动态修改权限.)</Divider>
-      <a-button v-auth="'1000'" type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
+      <Divider
+        >Instruction method to judge permissions (this method cannot dynamically modify
+        permissions.)</Divider
+      >
+      <a-button v-auth="'1000'" type="primary" class="mx-4">
+        Visible with code ['1000'] permission
+      </a-button>
 
-      <a-button v-auth="'2000'" color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
+      <a-button v-auth="'2000'" color="success" class="mx-4">
+        Visible with code ['2000'] permission
+      </a-button>
 
       <a-button v-auth="['1000', '2000']" color="error" class="mx-4">
-        拥有code ['1000','2000']角色权限可见
+        Visible with code ['1000','2000'] role permission
       </a-button>
     </template>
   </PageWrapper>
@@ -82,11 +91,12 @@
       );
 
       async function switchToken(userId: number) {
-        // 本函数切换用户登录Token的部分仅用于演示，实际生产时切换身份应当重新登录
+        // The part of this function to switch the user's login Token is only for demonstration,
+        // and the user should log in again when switching the identity in actual production
         const token = 'fakeToken' + userId;
         userStore.setToken(token);
 
-        // 重新获取用户信息和菜单
+        // Retrieve user info and menu
         userStore.getUserInfoAction();
         permissionStore.changePermissionCode();
       }

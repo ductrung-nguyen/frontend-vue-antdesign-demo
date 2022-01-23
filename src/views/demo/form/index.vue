@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper title="表单基础示例" contentFullHeight>
-    <CollapseContainer title="基础示例">
+  <PageWrapper title="Form Basics Example" contentFullHeight>
+    <CollapseContainer title="Basic example">
       <BasicForm
         autoFocusFirstItem
         :labelWidth="200"
@@ -71,7 +71,7 @@
   const valueSelectA = ref<string[]>([]);
   const valueSelectB = ref<string[]>([]);
   const options = ref<Recordable[]>([]);
-  for (let i = 1; i < 10; i++) options.value.push({ label: '选项' + i, value: `${i}` });
+  for (let i = 1; i < 10; i++) options.value.push({ label: 'Options' + i, value: `${i}` });
 
   const optionsA = computed(() => {
     return cloneDeep(unref(options)).map((op) => {
@@ -89,13 +89,13 @@
   const provincesOptions = [
     {
       id: 'guangdong',
-      label: '广东省',
+      label: 'Guangdong Province',
       value: '1',
       key: '1',
     },
     {
       id: 'jiangsu',
-      label: '江苏省',
+      label: 'Jiangsu Province',
       value: '2',
       key: '2',
     },
@@ -103,34 +103,34 @@
   const citiesOptionsData = {
     guangdong: [
       {
-        label: '珠海市',
+        label: 'Zhuhai city',
         value: '1',
         key: '1',
       },
       {
-        label: '深圳市',
+        label: 'Shenzhen',
         value: '2',
         key: '2',
       },
       {
-        label: '广州市',
+        label: 'Guangzhou City',
         value: '3',
         key: '3',
       },
     ],
     jiangsu: [
       {
-        label: '南京市',
+        label: 'Nanjing',
         value: '1',
         key: '1',
       },
       {
-        label: '无锡市',
+        label: 'Wuxi',
         value: '2',
         key: '2',
       },
       {
-        label: '苏州市',
+        label: 'Suzhou City',
         value: '3',
         key: '3',
       },
@@ -141,12 +141,12 @@
     {
       field: 'divider-basic',
       component: 'Divider',
-      label: '基础字段',
+      label: 'base field',
     },
     {
       field: 'field1',
       component: 'Input',
-      label: '字段1',
+      label: 'field 1',
 
       colProps: {
         span: 8,
@@ -157,7 +157,7 @@
         console.log('form:', schema);
         console.log('formModel:', formModel);
         return {
-          placeholder: '自定义placeholder',
+          placeholder: 'custom placeholder',
           onChange: (e: any) => {
             console.log(e);
           },
@@ -173,7 +173,7 @@
     {
       field: 'field2',
       component: 'Input',
-      label: '带后缀',
+      label: 'with suffix',
       defaultValue: '111',
       colProps: {
         span: 8,
@@ -183,12 +183,12 @@
           console.log(e);
         },
       },
-      suffix: '天',
+      suffix: 'day',
     },
     {
       field: 'field3',
       component: 'DatePicker',
-      label: '字段3',
+      label: 'field 3',
       colProps: {
         span: 8,
       },
@@ -196,19 +196,19 @@
     {
       field: 'field4',
       component: 'Select',
-      label: '字段4',
+      label: 'field 4',
       colProps: {
         span: 8,
       },
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
             key: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
             key: '2',
           },
@@ -218,18 +218,18 @@
     {
       field: 'field5',
       component: 'CheckboxGroup',
-      label: '字段5',
+      label: 'field 5',
       colProps: {
         span: 8,
       },
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
           },
         ],
@@ -238,18 +238,18 @@
     {
       field: 'field7',
       component: 'RadioGroup',
-      label: '字段7',
+      label: 'field 7',
       colProps: {
         span: 8,
       },
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
           },
         ],
@@ -258,7 +258,7 @@
     {
       field: 'field8',
       component: 'Checkbox',
-      label: '字段8',
+      label: 'field 8',
       colProps: {
         span: 8,
       },
@@ -267,7 +267,7 @@
     {
       field: 'field9',
       component: 'Switch',
-      label: '字段9',
+      label: 'Field 9',
       colProps: {
         span: 8,
       },
@@ -275,18 +275,18 @@
     {
       field: 'field10',
       component: 'RadioButtonGroup',
-      label: '字段10',
+      label: 'Field 10',
       colProps: {
         span: 8,
       },
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
           },
         ],
@@ -295,7 +295,7 @@
     {
       field: 'field11',
       component: 'Cascader',
-      label: '字段11',
+      label: 'Field 11',
       colProps: {
         span: 8,
       },
@@ -339,12 +339,12 @@
     {
       field: 'divider-api-select',
       component: 'Divider',
-      label: '远程下拉演示',
+      label: 'Remote drop down demo',
     },
     {
       field: 'field30',
       component: 'ApiSelect',
-      label: '懒加载远程下拉',
+      label: 'Lazy loading remote dropdown',
       required: true,
       componentProps: {
         // more details see /src/components/Form/src/components/ApiSelect.vue
@@ -375,8 +375,12 @@
     {
       field: 'field31',
       component: 'Input',
-      label: '下拉本地搜索',
-      helpMessage: ['ApiSelect组件', '远程数据源本地搜索', '只发起一次请求获取所有选项'],
+      label: 'Drop down local search',
+      helpMessage: [
+        'ApiSelect component',
+        'Local search of remote data source',
+        'Only one request to get all options',
+      ],
       required: true,
       slot: 'localSearch',
       colProps: {
@@ -387,8 +391,8 @@
     {
       field: 'field32',
       component: 'Input',
-      label: '下拉远程搜索',
-      helpMessage: ['ApiSelect组件', '将关键词发送到接口进行远程搜索'],
+      label: 'Drop down remote search',
+      helpMessage: ['ApiSelect component', 'Send keywords to the API for remote search'],
       required: true,
       slot: 'remoteSearch',
       colProps: {
@@ -399,8 +403,11 @@
     {
       field: 'field33',
       component: 'ApiTreeSelect',
-      label: '远程下拉树',
-      helpMessage: ['ApiTreeSelect组件', '使用接口提供的数据生成选项'],
+      label: 'Remote drop down tree',
+      helpMessage: [
+        'ApiTreeSelect component',
+        'Use the data generation options provided by the API',
+      ],
       required: true,
       componentProps: {
         api: treeOptionsListApi,
@@ -413,8 +420,11 @@
     {
       field: 'field34',
       component: 'ApiRadioGroup',
-      label: '远程Radio',
-      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成选项'],
+      label: 'Remote Radio',
+      helpMessage: [
+        'ApiRadioGroup component',
+        'Use the data generation options provided by the API',
+      ],
       required: true,
       componentProps: {
         api: optionsListApi,
@@ -435,8 +445,11 @@
     {
       field: 'field35',
       component: 'ApiRadioGroup',
-      label: '远程Radio',
-      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成选项'],
+      label: 'Remote Radio',
+      helpMessage: [
+        'ApiRadioGroup component',
+        'Use the data generation options provided by the API',
+      ],
       required: true,
       componentProps: {
         api: optionsListApi,
@@ -457,19 +470,19 @@
     {
       field: 'divider-linked',
       component: 'Divider',
-      label: '字段联动',
+      label: 'Field linkage',
     },
     {
       field: 'province',
       component: 'Select',
-      label: '省份',
+      label: 'province',
       colProps: {
         span: 8,
       },
       componentProps: ({ formModel, formActionType }) => {
         return {
           options: provincesOptions,
-          placeholder: '省份与城市联动',
+          placeholder: 'Province and city linkage',
           onChange: (e: any) => {
             // console.log(e)
             let citiesOptions =
@@ -495,25 +508,28 @@
     {
       field: 'city',
       component: 'Select',
-      label: '城市',
+      label: 'City',
       colProps: {
         span: 8,
       },
       componentProps: {
         options: [], // defalut []
-        placeholder: '省份与城市联动',
+        placeholder: 'Province and city linkage',
       },
     },
     {
       field: 'divider-selects',
       component: 'Divider',
-      label: '互斥多选',
-      helpMessage: ['两个Select共用数据源', '但不可选择对方已选中的项目'],
+      label: 'Mutually exclusive multiple choice',
+      helpMessage: [
+        'Two Selects share a data source',
+        'but cannot select items selected by each other',
+      ],
     },
     {
       field: 'selectA',
       component: 'Select',
-      label: '互斥SelectA',
+      label: 'Mutually exclusive SelectA',
       slot: 'selectA',
       defaultValue: [],
       colProps: {
@@ -523,7 +539,7 @@
     {
       field: 'selectB',
       component: 'Select',
-      label: '互斥SelectB',
+      label: 'Mutually exclusive SelectB',
       slot: 'selectB',
       defaultValue: [],
       colProps: {
@@ -533,12 +549,12 @@
     {
       field: 'divider-others',
       component: 'Divider',
-      label: '其它',
+      label: 'other',
     },
     {
       field: 'field20',
       component: 'InputNumber',
-      label: '字段20',
+      label: 'Field 20',
       required: true,
       colProps: {
         span: 8,
@@ -547,7 +563,7 @@
     {
       field: 'field21',
       component: 'Slider',
-      label: '字段21',
+      label: 'Field 21',
       componentProps: {
         min: 0,
         max: 100,
@@ -564,7 +580,7 @@
     {
       field: 'field22',
       component: 'Rate',
-      label: '字段22',
+      label: 'Field 22',
       defaultValue: 3,
       colProps: {
         span: 8,

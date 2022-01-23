@@ -17,6 +17,7 @@
   const { prefixCls } = useDesign('app-search-footer');
   const { t } = useI18n();
 </script>
+
 <style lang="less" scoped>
   @prefix-cls: ~'@{namespace}-app-search-footer';
 

@@ -26,7 +26,7 @@
 
   const columns: BasicColumn[] = [
     {
-      title: '输入框',
+      title: 'Input box',
       dataIndex: 'name',
       editRow: true,
       editComponentProps: {
@@ -35,34 +35,34 @@
       width: 150,
     },
     {
-      title: '默认输入状态',
+      title: 'Default input state',
       dataIndex: 'name7',
       editRow: true,
       width: 150,
     },
     {
-      title: '输入框校验',
+      title: 'Input box check',
       dataIndex: 'name1',
       editRow: true,
       align: 'left',
-      // 默认必填校验
+      // Required by default
       editRule: true,
       width: 150,
     },
     {
-      title: '输入框函数校验',
+      title: 'Input box function check',
       dataIndex: 'name2',
       editRow: true,
       align: 'right',
       editRule: async (text) => {
         if (text === '2') {
-          return '不能输入该值';
+          return 'This value cannot be entered';
         }
         return '';
       },
     },
     {
-      title: '数字输入框',
+      title: 'Number input box',
       dataIndex: 'id',
       editRow: true,
       editRule: true,
@@ -70,7 +70,7 @@
       width: 150,
     },
     {
-      title: '下拉框',
+      title: 'Drop down box',
       dataIndex: 'name3',
       editRow: true,
       editComponent: 'Select',
@@ -93,7 +93,7 @@
       width: 200,
     },
     {
-      title: '远程下拉',
+      title: 'Remote drop down',
       dataIndex: 'name4',
       editRow: true,
       editComponent: 'ApiSelect',
@@ -106,7 +106,7 @@
       width: 200,
     },
     {
-      title: '远程下拉树',
+      title: 'Remote drop down tree',
       dataIndex: 'name8',
       editRow: true,
       editComponent: 'ApiTreeSelect',
@@ -118,7 +118,7 @@
       width: 200,
     },
     {
-      title: '日期选择',
+      title: 'Date selection',
       dataIndex: 'date',
       editRow: true,
       editComponent: 'DatePicker',
@@ -129,7 +129,7 @@
       width: 150,
     },
     {
-      title: '时间选择',
+      title: 'Time selection',
       dataIndex: 'time',
       editRow: true,
       editComponent: 'TimePicker',
@@ -140,23 +140,23 @@
       width: 100,
     },
     {
-      title: '勾选框',
+      title: 'Check box',
       dataIndex: 'name5',
       editRow: true,
 
       editComponent: 'Checkbox',
       editValueMap: (value) => {
-        return value ? '是' : '否';
+        return value ? 'Yes' : 'No';
       },
       width: 100,
     },
     {
-      title: '开关',
+      title: 'Switch',
       dataIndex: 'name6',
       editRow: true,
       editComponent: 'Switch',
       editValueMap: (value) => {
-        return value ? '开' : '关';
+        return value ? 'Open' : 'Close';
       },
       width: 100,
     },
@@ -167,9 +167,9 @@
       const { createMessage: msg } = useMessage();
       const currentEditKeyRef = ref('');
       const [registerTable] = useTable({
-        title: '可编辑行示例',
+        title: 'Editable line example',
         titleHelpMessage: [
-          '本例中修改[数字输入框]这一列时，同一行的[远程下拉]列的当前编辑数据也会同步发生改变',
+          'In this example, when the column [Numeric Input Box] is modified, the current editing data of the [Remote drop-down] column in the same row will also be changed synchronously',
         ],
         api: demoListApi,
         columns: columns,
@@ -195,26 +195,26 @@
       }
 
       async function handleSave(record: EditRecordRow) {
-        // 校验
-        msg.loading({ content: '正在保存...', duration: 0, key: 'saving' });
+        // check
+        msg.loading({ content: 'Saving...', duration: 0, key: 'saving' });
         const valid = await record.onValid?.();
         if (valid) {
           try {
             const data = cloneDeep(record.editValueRefs);
             console.log(data);
-            //TODO 此处将数据提交给服务器保存
+            //TODO Submit the data to the server for saving here
             // ...
-            // 保存之后提交编辑状态
+            // Submit edit state after saving
             const pass = await record.onEdit?.(false, true);
             if (pass) {
               currentEditKeyRef.value = '';
             }
-            msg.success({ content: '数据已保存', key: 'saving' });
+            msg.success({ content: 'Data saved', key: 'saving' });
           } catch (error) {
-            msg.error({ content: '保存失败', key: 'saving' });
+            msg.error({ content: 'Failed to save', key: 'saving' });
           }
         } else {
-          msg.error({ content: '请填写正确的数据', key: 'saving' });
+          msg.error({ content: 'Please fill in the correct data', key: 'saving' });
         }
       }
 
@@ -222,7 +222,7 @@
         if (!record.editable) {
           return [
             {
-              label: '编辑',
+              label: 'Edit',
               disabled: currentEditKeyRef.value ? currentEditKeyRef.value !== record.key : false,
               onClick: handleEdit.bind(null, record),
             },
@@ -230,13 +230,13 @@
         }
         return [
           {
-            label: '保存',
+            label: 'Save',
             onClick: handleSave.bind(null, record, column),
           },
           {
-            label: '取消',
+            label: 'Cancel',
             popConfirm: {
-              title: '是否取消编辑',
+              title: 'Do you want to cancel editing?',
               confirm: handleCancel.bind(null, record, column),
             },
           },
@@ -244,7 +244,7 @@
       }
 
       function onEditChange({ column, value, record }) {
-        // 本例
+        // example
         if (column.dataIndex === 'id') {
           record.editValueRefs.name4.value = `${value}`;
         }

@@ -2,20 +2,21 @@ import type { BasicColumn, BasicTableProps, CellFormat, GetColumnsParams } from 
 import type { PaginationProps } from '../types/pagination';
 import type { ComputedRef } from 'vue';
 import { computed, Ref, ref, toRaw, unref, watch } from 'vue';
-import { renderEditCell } from '../components/editable';
+import { Params, renderEditCell } from '../components/editable';
 import { usePermission } from '/@/hooks/web/usePermission';
 import { useI18n } from '/@/hooks/web/useI18n';
 import { isArray, isBoolean, isFunction, isMap, isString } from '/@/utils/is';
 import { cloneDeep, isEqual } from 'lodash-es';
 import { formatToDate } from '/@/utils/dateUtil';
 import { ACTION_COLUMN_FLAG, DEFAULT_ALIGN, INDEX_COLUMN_FLAG, PAGE_SIZE } from '../const';
+import dayjs from 'dayjs';
 
 function handleItem(item: BasicColumn, ellipsis: boolean) {
   const { key, dataIndex, children } = item;
   item.align = item.align || DEFAULT_ALIGN;
   if (ellipsis) {
     if (!key) {
-      item.key = dataIndex;
+      item.key = dataIndex as string | number;
     }
     if (!isBoolean(item.ellipsis)) {
       Object.assign(item, {
@@ -156,19 +157,19 @@ export function useColumns(
 
         if (!slots || !slots?.title) {
           column.slots = { title: `header-${dataIndex}`, ...(slots || {}) };
-          column.customTitle = column.title;
+          column.customTitle = column.title as any;
           Reflect.deleteProperty(column, 'title');
         }
         const isDefaultAction = [INDEX_COLUMN_FLAG, ACTION_COLUMN_FLAG].includes(flag!);
         if (!customRender && format && !edit && !isDefaultAction) {
-          column.customRender = ({ text, record, index }) => {
+          column.customRender = (({ text, record, index }: Params) => {
             return formatCell(text, format, record, index);
-          };
+          }) as any;
         }
 
         // edit table
         if ((edit || editRow) && !isDefaultAction) {
-          column.customRender = renderEditCell(column);
+          column.customRender = renderEditCell(column) as any;
         }
         return column;
       });
@@ -195,7 +196,7 @@ export function useColumns(
   }
   /**
    * set columns
-   * @param columnList key｜column
+   * @param columnList key | column
    */
   function setColumns(columnList: Partial<BasicColumn>[] | string[]) {
     const columns = cloneDeep(columnList);
@@ -218,7 +219,7 @@ export function useColumns(
       cacheColumns.forEach((item) => {
         newColumns.push({
           ...item,
-          defaultHidden: !columnKeys.includes(item.dataIndex! || (item.key as string)),
+          defaultHidden: !columnKeys.includes((item.dataIndex! as string) || (item.key as string)),
         });
       });
       // Sort according to another array
@@ -304,7 +305,7 @@ export function formatCell(text: string, format: CellFormat, record: Recordable,
       if (!dateFormat) {
         return text;
       }
-      return formatToDate(text, dateFormat);
+      return formatToDate(dayjs(new Date(text)), dateFormat);
     }
 
     // Map

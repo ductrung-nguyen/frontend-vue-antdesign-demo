@@ -36,7 +36,7 @@
   import FoldButton from './components/FoldButton.vue';
   import TabRedo from './components/TabRedo.vue';
 
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
 
   import { useMultipleTabStore } from '/@/store/modules/multipleTab';
   import { useUserStore } from '/@/store/modules/user';
@@ -69,7 +69,7 @@
       const router = useRouter();
 
       const { prefixCls } = useDesign('multiple-tabs');
-      const go = useGo();
+      const go = useNavigator();
       const { getShowQuick, getShowRedo, getShowFold } = useMultipleTabSetting();
 
       const getTabsState = computed(() => {

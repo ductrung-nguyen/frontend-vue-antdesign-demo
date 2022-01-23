@@ -1,7 +1,7 @@
 <template>
-  <PageWrapper title="excel数据导入示例">
+  <PageWrapper title="Excel data import example">
     <ImpExcel @success="loadDataSuccess" dateFormat="YYYY-MM-DD">
-      <a-button class="m-3"> 导入Excel </a-button>
+      <a-button class="m-3"> Import into Excel </a-button>
     </ImpExcel>
     <BasicTable
       v-for="(table, index) in tableListRef"

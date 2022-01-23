@@ -3,7 +3,7 @@
     :tab-list="tabListTitle"
     v-bind="$attrs"
     :active-tab-key="activeKey"
-    @tabChange="onTabChange"
+    @tab-change="onTabChange"
   >
     <p v-if="activeKey === 'tab1'">
       <VisitAnalysis />
@@ -24,11 +24,11 @@
   const tabListTitle = [
     {
       key: 'tab1',
-      tab: '流量趋势',
+      tab: 'Traffic trend',
     },
     {
       key: 'tab2',
-      tab: '访问量',
+      tab: 'Views',
     },
   ];
 

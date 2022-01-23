@@ -103,8 +103,8 @@
         };
       });
 
-      // 在此处使用计算量可能会导致sider异常
-      // andv 更新后，如果trigger插槽可用，则此处代码可废弃
+      // Using computations here may result in a sider exception
+      // After andv update, if the trigger slot is available, the code here can be deprecated
       const getTrigger = h(LayoutTrigger);
 
       return {

@@ -1,17 +1,25 @@
 <template>
-  <PageWrapper title="文件下载示例">
-    <a-alert message="根据后台接口文件流下载" />
-    <a-button type="primary" class="my-4" @click="handleDownByData"> 文件流下载 </a-button>
+  <PageWrapper title="File download example">
+    <a-alert message="Download according to the background interface file stream" />
+    <a-button type="primary" class="my-4" @click="handleDownByData">
+      File stream download
+    </a-button>
 
-    <a-alert message="根据文件地址下载文件" />
-    <a-button type="primary" class="my-4" @click="handleDownloadByUrl"> 文件地址下载 </a-button>
+    <a-alert message="Download the file according to the file address" />
+    <a-button type="primary" class="my-4" @click="handleDownloadByUrl">
+      File address download
+    </a-button>
 
-    <a-alert message="base64流下载" />
-    <a-button type="primary" class="my-4" @click="handleDownloadByBase64"> base64流下载 </a-button>
+    <a-alert message="base64 stream download" />
+    <a-button type="primary" class="my-4" @click="handleDownloadByBase64">
+      base64 stream download
+    </a-button>
 
-    <a-alert message="图片Url下载,如果有跨域问题，需要处理图片跨域" />
+    <a-alert
+      message="Image Url download, if there is a cross-domain problem, you need to process the image cross-domain"
+    />
     <a-button type="primary" class="my-4" @click="handleDownloadByOnlineUrl">
-      图片Url下载
+      Image Url Download
     </a-button>
   </PageWrapper>
 </template>

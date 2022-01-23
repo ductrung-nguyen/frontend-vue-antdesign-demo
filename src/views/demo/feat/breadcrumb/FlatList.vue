@@ -1,6 +1,9 @@
 <template>
-  <PageWrapper title="平级面包屑示例" content="子级页面面包屑会覆盖当前层级">
-    <router-link to="/feat/breadcrumb/flatDetail"> 进入平级详情页 </router-link>
+  <PageWrapper
+    title="Flat breadcrumb example"
+    content="Child page breadcrumbs will overwrite the current level"
+  >
+    <router-link to="/feat/breadcrumb/flatDetail"> Enter the level details page </router-link>
   </PageWrapper>
 </template>
 <script lang="ts">

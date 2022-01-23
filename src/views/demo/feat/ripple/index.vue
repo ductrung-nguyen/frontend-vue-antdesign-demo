@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper title="Ripple示例">
+  <PageWrapper title="Ripple example">
     <div class="demo-box" v-ripple>content</div>
   </PageWrapper>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>平级详情页</div>
+  <div>Level details page</div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';

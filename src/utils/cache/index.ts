@@ -5,7 +5,7 @@ import { DEFAULT_CACHE_TIME } from '/@/settings/encryptionSetting';
 
 export type Options = Partial<CreateStorageParams>;
 
-const createOptions = (storage: Storage, options: Options = {}): Options => {
+const createOptionsFunc = (storage: Storage, options: Options = {}): Options => {
   return {
     // No encryption in debug mode
     hasEncrypt: enableStorageEncryption,
@@ -15,16 +15,20 @@ const createOptions = (storage: Storage, options: Options = {}): Options => {
   };
 };
 
-export const WebStorage = create(createOptions(sessionStorage));
+// export the default WebStorage object (using Session Storage API)
+export const WebStorage = create(createOptionsFunc(sessionStorage));
 
+// export function to create a custom storage
 export const createStorage = (storage: Storage = sessionStorage, options: Options = {}) => {
-  return create(createOptions(storage, options));
+  return create(createOptionsFunc(storage, options));
 };
 
+// export function to create a Storage using session Storage API with given options
 export const createSessionStorage = (options: Options = {}) => {
   return createStorage(sessionStorage, { ...options, timeout: DEFAULT_CACHE_TIME });
 };
 
+// export function to create a Storage using Local Storage API with given options
 export const createLocalStorage = (options: Options = {}) => {
   return createStorage(localStorage, { ...options, timeout: DEFAULT_CACHE_TIME });
 };

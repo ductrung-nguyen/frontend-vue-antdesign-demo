@@ -18,7 +18,7 @@
   import { useMessage } from '/@/hooks/web/useMessage';
   const columns: BasicColumn[] = [
     {
-      title: '输入框',
+      title: 'Input box',
       dataIndex: 'name',
       edit: true,
       editComponentProps: {
@@ -27,34 +27,34 @@
       width: 200,
     },
     {
-      title: '默认输入状态',
+      title: 'Default input state',
       dataIndex: 'name7',
       edit: true,
       editable: true,
       width: 200,
     },
     {
-      title: '输入框校验',
+      title: 'Input box check',
       dataIndex: 'name1',
       edit: true,
-      // 默认必填校验
+      // Required by default
       editRule: true,
       width: 200,
     },
     {
-      title: '输入框函数校验',
+      title: 'Input box function check',
       dataIndex: 'name2',
       edit: true,
       editRule: async (text) => {
         if (text === '2') {
-          return '不能输入该值';
+          return 'This value cannot be entered';
         }
         return '';
       },
       width: 200,
     },
     {
-      title: '数字输入框',
+      title: 'Number input box',
       dataIndex: 'id',
       edit: true,
       editRule: true,
@@ -62,7 +62,7 @@
       width: 200,
     },
     {
-      title: '下拉框',
+      title: 'Drop down box',
       dataIndex: 'name3',
       edit: true,
       editComponent: 'Select',
@@ -81,7 +81,7 @@
       width: 200,
     },
     {
-      title: '远程下拉',
+      title: 'Remote drop down',
       dataIndex: 'name4',
       edit: true,
       editComponent: 'ApiSelect',
@@ -94,7 +94,7 @@
       width: 200,
     },
     {
-      title: '远程下拉树',
+      title: 'Remote drop down tree',
       dataIndex: 'name71',
       edit: true,
       editComponent: 'ApiTreeSelect',
@@ -106,7 +106,7 @@
       width: 200,
     },
     {
-      title: '日期选择',
+      title: 'Date selection',
       dataIndex: 'date',
       edit: true,
       editComponent: 'DatePicker',
@@ -117,7 +117,7 @@
       width: 200,
     },
     {
-      title: '时间选择',
+      title: 'Time selection',
       dataIndex: 'time',
       edit: true,
       editComponent: 'TimePicker',
@@ -128,22 +128,22 @@
       width: 200,
     },
     {
-      title: '勾选框',
+      title: 'Check box',
       dataIndex: 'name5',
       edit: true,
       editComponent: 'Checkbox',
       editValueMap: (value) => {
-        return value ? '是' : '否';
+        return value ? 'Yes' : 'No';
       },
       width: 200,
     },
     {
-      title: '开关',
+      title: 'Switch',
       dataIndex: 'name6',
       edit: true,
       editComponent: 'Switch',
       editValueMap: (value) => {
-        return value ? '开' : '关';
+        return value ? 'Open' : 'Close';
       },
       width: 200,
     },
@@ -152,7 +152,7 @@
     components: { BasicTable },
     setup() {
       const [registerTable] = useTable({
-        title: '可编辑单元格示例',
+        title: 'Editable cell example',
         api: demoListApi,
         columns: columns,
         showIndexColumn: false,
@@ -166,10 +166,10 @@
         return false;
       }
 
-      // 模拟将指定数据保存
+      // The simulation saves the specified data
       function feakSave({ value, key, id }) {
         createMessage.loading({
-          content: `正在模拟保存${key}`,
+          content: `Simulating save${key}`,
           key: '_save_fake_data',
           duration: 0,
         });
@@ -177,14 +177,14 @@
           setTimeout(() => {
             if (value === '') {
               createMessage.error({
-                content: '保存失败：不能为空',
+                content: 'Failed to save: cannot be empty',
                 key: '_save_fake_data',
                 duration: 2,
               });
               resolve(false);
             } else {
               createMessage.success({
-                content: `记录${id}的${key}已保存`,
+                content: `${key} of record ${id} is saved`,
                 key: '_save_fake_data',
                 duration: 2,
               });
@@ -195,7 +195,7 @@
       }
 
       async function beforeEditSubmit({ record, index, key, value }) {
-        console.log('单元格数据正在准备提交', { record, index, key, value });
+        console.log('Cell data is preparing to submit', { record, index, key, value });
         return await feakSave({ id: record.id, key, value });
       }
 

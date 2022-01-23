@@ -18,7 +18,7 @@
     {
       field: 'field1',
       component: 'Input',
-      label: '字段1',
+      label: 'Field 1',
       colProps: {
         span: 24,
       },
@@ -27,7 +27,7 @@
     {
       field: 'field2',
       component: 'Input',
-      label: '字段2',
+      label: 'Field 2',
       colProps: {
         span: 24,
       },
@@ -61,13 +61,13 @@
 
       function onDataReceive(data) {
         console.log('Data Received', data);
-        // 方式1;
+        // way 1;
         // setFieldsValue({
         //   field2: data.data,
         //   field1: data.info,
         // });
 
-        // // 方式2
+        // // way 2
         modelRef.value = { field2: data.data, field1: data.info };
 
         // setProps({

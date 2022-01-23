@@ -4,18 +4,20 @@
     destroyOnClose
     @register="register"
     title="Modal Title"
-    :helpMessage="['提示1', '提示2']"
+    :helpMessage="['hint 1', 'hint 2']"
     @visible-change="handleShow"
   >
     <template #insertFooter>
-      <a-button type="primary" danger @click="setLines" :disabled="loading">点我更新内容</a-button>
+      <a-button type="primary" danger @click="setLines" :disabled="loading"
+        >Click me to update content</a-button
+      >
     </template>
     <template v-if="loading">
-      <div class="empty-tips">加载中，稍等3秒……</div>
+      <div class="empty-tips">Loading, wait 3 seconds...</div>
     </template>
     <template v-if="!loading">
       <ul>
-        <li v-for="index in lines" :key="index">加载完成{{ index }}！</li>
+        <li v-for="index in lines" :key="index">download finished {{ index }}!</li>
       </ul>
     </template>
   </BasicModal>

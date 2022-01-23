@@ -7,7 +7,7 @@
       "properties": {
         "id": "710000",
         "cp": [121.509062, 24.044332],
-        "name": "台湾",
+        "name": "Taiwan",
         "childNum": 6
       },
       "geometry": {
@@ -42,7 +42,7 @@
       "properties": {
         "id": "130000",
         "cp": [114.502461, 38.045474],
-        "name": "河北",
+        "name": "Hebei",
         "childNum": 3
       },
       "geometry": {
@@ -63,7 +63,7 @@
       "properties": {
         "id": "140000",
         "cp": [111.849248, 36.857014],
-        "name": "山西",
+        "name": "Shanxi",
         "childNum": 1
       },
       "geometry": {
@@ -80,7 +80,7 @@
       "properties": {
         "id": "150000",
         "cp": [111.670801, 41.818311],
-        "name": "内蒙古",
+        "name": "Inner Mongolia",
         "childNum": 2
       },
       "geometry": {
@@ -99,7 +99,7 @@
       "properties": {
         "id": "210000",
         "cp": [123.429096, 41.796767],
-        "name": "辽宁",
+        "name": "Liaoning",
         "childNum": 16
       },
       "geometry": {
@@ -162,7 +162,7 @@
       "properties": {
         "id": "230000",
         "cp": [128.642464, 46.756967],
-        "name": "黑龙江",
+        "name": "Heilongjiang",
         "childNum": 2
       },
       "geometry": {
@@ -181,7 +181,7 @@
       "properties": {
         "id": "320000",
         "cp": [119.767413, 33.041544],
-        "name": "江苏",
+        "name": "Jiangsu",
         "childNum": 1
       },
       "geometry": {
@@ -198,7 +198,7 @@
       "properties": {
         "id": "330000",
         "cp": [120.153576, 29.287459],
-        "name": "浙江",
+        "name": "Zhejiang",
         "childNum": 45
       },
       "geometry": {
@@ -323,7 +323,7 @@
       "properties": {
         "id": "350000",
         "cp": [118.306239, 26.075302],
-        "name": "福建",
+        "name": "Fujian",
         "childNum": 18
       },
       "geometry": {
@@ -378,7 +378,7 @@
       "properties": {
         "id": "360000",
         "cp": [115.592151, 27.676493],
-        "name": "江西",
+        "name": "Jiangxi",
         "childNum": 1
       },
       "geometry": {
@@ -395,7 +395,7 @@
       "properties": {
         "id": "370000",
         "cp": [118.000923, 36.275807],
-        "name": "山东",
+        "name": "Shandong",
         "childNum": 13
       },
       "geometry": {
@@ -440,7 +440,7 @@
       "properties": {
         "id": "410000",
         "cp": [113.665412, 33.757975],
-        "name": "河南",
+        "name": "Henan",
         "childNum": 1
       },
       "geometry": {
@@ -457,7 +457,7 @@
       "properties": {
         "id": "420000",
         "cp": [113.298572, 30.684355],
-        "name": "湖北",
+        "name": "Hubei",
         "childNum": 3
       },
       "geometry": {
@@ -494,7 +494,7 @@
       "properties": {
         "id": "440000",
         "cp": [113.280637, 23.125178],
-        "name": "广东",
+        "name": "Guangdong",
         "childNum": 24
       },
       "geometry": {
@@ -588,7 +588,7 @@
       "properties": {
         "id": "510000",
         "cp": [104.065735, 30.659462],
-        "name": "四川",
+        "name": "Sichuan",
         "childNum": 2
       },
       "geometry": {
@@ -608,7 +608,7 @@
       "properties": {
         "id": "520000",
         "cp": [106.713478, 26.578343],
-        "name": "贵州",
+        "name": "Guizhou",
         "childNum": 3
       },
       "geometry": {
@@ -629,7 +629,7 @@
       "properties": {
         "id": "530000",
         "cp": [101.512251, 24.740609],
-        "name": "云南",
+        "name": "Yunnan",
         "childNum": 1
       },
       "geometry": {
@@ -658,7 +658,7 @@
       "properties": {
         "id": "610000",
         "cp": [108.948024, 34.263161],
-        "name": "陕西",
+        "name": "Shaanxi",
         "childNum": 1
       },
       "geometry": {
@@ -675,7 +675,7 @@
       "properties": {
         "id": "620000",
         "cp": [103.823557, 36.058039],
-        "name": "甘肃",
+        "name": "Gansu",
         "childNum": 2
       },
       "geometry": {
@@ -737,7 +737,7 @@
       "properties": {
         "id": "110000",
         "cp": [116.405285, 39.904989],
-        "name": "北京",
+        "name": "Beijing",
         "childNum": 1
       },
       "geometry": {
@@ -754,7 +754,7 @@
       "properties": {
         "id": "120000",
         "cp": [117.190182, 39.125596],
-        "name": "天津",
+        "name": "Tianjin",
         "childNum": 1
       },
       "geometry": {
@@ -771,7 +771,7 @@
       "properties": {
         "id": "310000",
         "cp": [121.472644, 31.231706],
-        "name": "上海",
+        "name": "Shanghai",
         "childNum": 6
       },
       "geometry": {
@@ -800,7 +800,7 @@
       "properties": {
         "id": "500000",
         "cp": [107.304962, 29.533155],
-        "name": "重庆",
+        "name": "chongqing",
         "childNum": 2
       },
       "geometry": {
@@ -820,7 +820,7 @@
       "properties": {
         "id": "810000",
         "cp": [114.173355, 22.320048],
-        "name": "香港",
+        "name": "Hongkong",
         "childNum": 5
       },
       "geometry": {

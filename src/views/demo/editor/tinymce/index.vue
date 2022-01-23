@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper title="富文本组件示例">
+  <PageWrapper title="Example of rich text component">
     <Tinymce v-model="value" @change="handleChange" width="100%" />
   </PageWrapper>
 </template>

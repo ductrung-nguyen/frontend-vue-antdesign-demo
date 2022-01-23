@@ -1,8 +1,8 @@
 <template>
-  <PageWrapper title="基础详情页" contentBackground>
+  <PageWrapper title="Basic Details Page" contentBackground>
     <Description
       size="middle"
-      title="退款申请"
+      title="Refund Request"
       :bordered="false"
       :column="3"
       :data="refundData"
@@ -11,7 +11,7 @@
     <a-divider />
     <Description
       size="middle"
-      title="用户信息"
+      title="User Information"
       :bordered="false"
       :column="3"
       :data="personData"
@@ -45,7 +45,7 @@
     components: { Description, BasicTable, PageWrapper, [Divider.name]: Divider },
     setup() {
       const [registerRefundTable] = useTable({
-        title: '退货商品',
+        title: 'Returned item',
         dataSource: refundTableData,
         columns: refundTableSchema,
         pagination: false,
@@ -56,7 +56,7 @@
       });
 
       const [registerTimeTable] = useTable({
-        title: '退货进度',
+        title: 'Return progress',
         columns: refundTimeTableSchema,
         pagination: false,
         dataSource: refundTimeTableData,
@@ -73,7 +73,7 @@
         });
         return [
           {
-            t1: '总计',
+            t1: 'Total',
             t5: totalT5,
             t6: totalT6,
           },

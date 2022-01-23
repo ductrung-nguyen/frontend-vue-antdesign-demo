@@ -11,7 +11,7 @@
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   import { ScrollContainer } from '/@/components/Container';
 
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
   import { useSplitMenu } from './useLayoutMenu';
   import { openWindow } from '/@/utils';
   import { propTypes } from '/@/utils/propTypes';
@@ -38,7 +38,7 @@
       },
     },
     setup(props) {
-      const go = useGo();
+      const go = useNavigator();
 
       const {
         getMenuMode,

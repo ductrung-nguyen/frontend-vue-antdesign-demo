@@ -2,7 +2,7 @@
   <div>
     <BasicTable @register="registerTable">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增角色 </a-button>
+        <a-button type="primary" @click="handleCreate"> Add role </a-button>
       </template>
       <template #action="{ record }">
         <TableAction
@@ -15,7 +15,7 @@
               icon: 'ant-design:delete-outlined',
               color: 'error',
               popConfirm: {
-                title: '是否确认删除',
+                title: 'Are you sure to delete',
                 confirm: handleDelete.bind(null, record),
               },
             },
@@ -43,7 +43,7 @@
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
-        title: '角色列表',
+        title: 'Character list',
         api: getRoleListByPage,
         columns,
         formConfig: {
@@ -56,7 +56,7 @@
         showIndexColumn: false,
         actionColumn: {
           width: 80,
-          title: '操作',
+          title: 'Operation',
           dataIndex: 'action',
           slots: { customRender: 'action' },
           fixed: undefined,

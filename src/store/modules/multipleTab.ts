@@ -4,8 +4,8 @@ import { toRaw, unref } from 'vue';
 import { defineStore } from 'pinia';
 import { store } from '/@/store';
 
-import { useGo, useRedo } from '/@/hooks/web/usePage';
-import { Persistent } from '/@/utils/cache/persistent';
+import { useNavigator, useRedo } from '/@/hooks/web/usePage';
+import { PersistentHelper } from '/@/utils/cache/persistent';
 
 import { PageEnum } from '/@/enums/pageEnum';
 import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from '/@/router/routes/basic';
@@ -22,7 +22,7 @@ export interface MultipleTabState {
 }
 
 function handleGotoPage(router: Router) {
-  const go = useGo(router);
+  const go = useNavigator(router);
   go(unref(router.currentRoute).path, true);
 }
 
@@ -43,7 +43,7 @@ export const useMultipleTabStore = defineStore({
     // Tabs that need to be cached
     cacheTabList: new Set(),
     // multiple tab list
-    tabList: cacheTab ? Persistent.getLocal(MULTIPLE_TABS_KEY) || [] : [],
+    tabList: cacheTab ? PersistentHelper.getLocal(MULTIPLE_TABS_KEY) || [] : [],
     // Index of the last moved tab
     lastDragEndIndex: 0,
   }),
@@ -101,7 +101,7 @@ export const useMultipleTabStore = defineStore({
       this.clearCacheTabs();
     },
     goToPage(router: Router) {
-      const go = useGo(router);
+      const go = useNavigator(router);
       const len = this.tabList.length;
       const { path } = unref(router.currentRoute);
 
@@ -149,18 +149,18 @@ export const useMultipleTabStore = defineStore({
         this.tabList.splice(updateIndex, 1, curTab);
       } else {
         // Add tab
-        // 获取动态路由打开数，超过 0 即代表需要控制打开数
+        // Get the number of dynamic routing openings. If it exceeds 0, it means that the number of openings needs to be controlled.
         const dynamicLevel = meta?.dynamicLevel ?? -1;
         if (dynamicLevel > 0) {
-          // 如果动态路由层级大于 0 了，那么就要限制该路由的打开数限制了
-          // 首先获取到真实的路由，使用配置方式减少计算开销.
+          // If the dynamic routing level is greater than 0, then it is necessary to limit the number of openings of the route.
+          // First get the real route and use the configuration method to reduce the calculation overhead.
           // const realName: string = path.match(/(\S*)\//)![1];
           const realPath = meta?.realPath ?? '';
-          // 获取到已经打开的动态路由数, 判断是否大于某一个值
+          // Get the number of dynamic routes that have been opened, and determine whether it is greater than a certain value
           if (
             this.tabList.filter((e) => e.meta?.realPath ?? '' === realPath).length >= dynamicLevel
           ) {
-            // 关闭第一个
+            // close the first
             const index = this.tabList.findIndex((item) => item.meta.realPath === realPath);
             index !== -1 && this.tabList.splice(index, 1);
           }
@@ -168,7 +168,7 @@ export const useMultipleTabStore = defineStore({
         this.tabList.push(route);
       }
       this.updateCacheTab();
-      cacheTab && Persistent.setLocal(MULTIPLE_TABS_KEY, this.tabList);
+      cacheTab && PersistentHelper.setLocal(MULTIPLE_TABS_KEY, this.tabList);
     },
 
     async closeTab(tab: RouteLocationNormalized, router: Router) {
@@ -221,11 +221,11 @@ export const useMultipleTabStore = defineStore({
       if (index !== -1) {
         await this.closeTab(this.tabList[index], router);
         const { currentRoute, replace } = router;
-        // 检查当前路由是否存在于tabList中
+        // Check if the current route exists in the tabList
         const isActivated = this.tabList.findIndex((item) => {
           return item.fullPath === currentRoute.value.fullPath;
         });
-        // 如果当前路由不存在于TabList中，尝试切换到其它路由
+        // If the current route does not exist in the TabList, try to switch to another route
         if (isActivated === -1) {
           let pageIndex;
           if (index > 0) {

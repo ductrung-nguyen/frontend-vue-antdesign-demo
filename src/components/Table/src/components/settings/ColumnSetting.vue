@@ -6,7 +6,7 @@
     <Popover
       placement="bottomLeft"
       trigger="click"
-      @visibleChange="handleVisibleChange"
+      @visible-change="handleVisibleChange"
       :overlayClassName="`${prefixCls}__cloumn-list`"
       :getPopupContainer="getPopupContainer"
     >
@@ -316,7 +316,7 @@
               setColumns(columns);
             },
           });
-          // 记录原始order 序列
+          // Record the original order sequence
           sortableOrder = sortable.toArray();
           inited = true;
         });

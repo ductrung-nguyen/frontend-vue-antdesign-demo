@@ -1,9 +1,9 @@
 import type { Menu } from '/@/router/types';
-import { ref, onBeforeMount, unref, Ref, nextTick } from 'vue';
+import { ref, onBeforeMount, Ref, nextTick } from 'vue';
 import { getMenus } from '/@/router/menus';
 import { cloneDeep } from 'lodash-es';
 import { filter, forEach } from '/@/utils/helper/treeHelper';
-import { useGo } from '/@/hooks/web/usePage';
+import { useNavigator } from '/@/hooks/web/usePage';
 import { useScrollTo } from '/@/hooks/event/useScrollTo';
 import { onKeyStroke, useDebounceFn } from '@vueuse/core';
 import { useI18n } from '/@/hooks/web/useI18n';
@@ -34,7 +34,7 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref<ElRef>, 
   let menuList: Menu[] = [];
 
   const { t } = useI18n();
-  const go = useGo();
+  const navigateTo = useNavigator();
   const handleSearch = useDebounceFn(search, 200);
 
   onBeforeMount(async () => {
@@ -53,7 +53,7 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref<ElRef>, 
       searchResult.value = [];
       return;
     }
-    const reg = createSearchReg(unref(keyword));
+    const reg = createSearchReg(keyword.value);
     const filterMenu = filter(menuList, (item) => {
       return reg.test(item.name) && !item.hideMenu;
     });
@@ -108,17 +108,17 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref<ElRef>, 
   // When the keyboard up and down keys move to an invisible place
   // the scroll bar needs to scroll automatically
   function handleScroll() {
-    const refList = unref(refs);
-    if (!refList || !Array.isArray(refList) || refList.length === 0 || !unref(scrollWrap)) {
+    const refList = refs.value;
+    if (!refList || !Array.isArray(refList) || refList.length === 0 || !scrollWrap.value) {
       return;
     }
 
-    const index = unref(activeIndex);
+    const index = activeIndex.value;
     const currentRef = refList[index];
     if (!currentRef) {
       return;
     }
-    const wrapEl = unref(scrollWrap);
+    const wrapEl = scrollWrap.value;
     if (!wrapEl) {
       return;
     }
@@ -137,15 +137,15 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref<ElRef>, 
     if (!searchResult.value.length) {
       return;
     }
-    const result = unref(searchResult);
-    const index = unref(activeIndex);
+    const result = searchResult.value;
+    const index = activeIndex.value;
     if (result.length === 0 || index < 0) {
       return;
     }
     const to = result[index];
     handleClose();
     await nextTick();
-    go(to.path);
+    navigateTo(to.path);
   }
 
   // close search modal

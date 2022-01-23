@@ -1,19 +1,25 @@
 <template>
-  <PageWrapper title="二维码组件使用示例">
+  <PageWrapper title="QR code component usage example">
     <div class="flex flex-wrap">
       <CollapseContainer
-        title="基础示例"
+        title="Basic example"
         :canExpan="true"
         class="text-center mb-6 qrcode-demo-item"
       >
         <QrCode :value="qrCodeUrl" />
       </CollapseContainer>
 
-      <CollapseContainer title="渲染成img标签示例" class="text-center mb-6 qrcode-demo-item">
+      <CollapseContainer
+        title="Render to img tag example"
+        class="text-center mb-6 qrcode-demo-item"
+      >
         <QrCode :value="qrCodeUrl" tag="img" />
       </CollapseContainer>
 
-      <CollapseContainer title="配置样式示例" class="text-center mb-6 qrcode-demo-item">
+      <CollapseContainer
+        title="Configuration style example"
+        class="text-center mb-6 qrcode-demo-item"
+      >
         <QrCode
           :value="qrCodeUrl"
           :options="{
@@ -22,11 +28,11 @@
         />
       </CollapseContainer>
 
-      <CollapseContainer title="本地logo示例" class="text-center mb-6 qrcode-demo-item">
+      <CollapseContainer title="Local logo example" class="text-center mb-6 qrcode-demo-item">
         <QrCode :value="qrCodeUrl" :logo="LogoImg" />
       </CollapseContainer>
 
-      <CollapseContainer title="在线logo示例" class="text-center mb-6 qrcode-demo-item">
+      <CollapseContainer title="Online Logo Example" class="text-center mb-6 qrcode-demo-item">
         <QrCode
           :value="qrCodeUrl"
           logo="https://vebn.oss-cn-beijing.aliyuncs.com/vben/logo.png"
@@ -36,7 +42,10 @@
         />
       </CollapseContainer>
 
-      <CollapseContainer title="logo配置示例" class="text-center mb-6 qrcode-demo-item">
+      <CollapseContainer
+        title="Logo configuration example"
+        class="text-center mb-6 qrcode-demo-item"
+      >
         <QrCode
           :value="qrCodeUrl"
           :logo="{
@@ -49,17 +58,20 @@
         />
       </CollapseContainer>
 
-      <CollapseContainer title="下载示例" class="text-center qrcode-demo-item">
+      <CollapseContainer title="Download example" class="text-center qrcode-demo-item">
         <QrCode :value="qrCodeUrl" ref="qrRef" :logo="LogoImg" />
-        <a-button class="mb-2" type="primary" @click="download"> 下载 </a-button>
-        <div class="msg">(在线logo会导致图片跨域，需要下载图片需要自行解决跨域问题)</div>
+        <a-button class="mb-2" type="primary" @click="download"> Download </a-button>
+        <div class="msg"
+          >(Online logo will cause the image to cross domain, and you need to download the image and
+          you need to solve the cross domain problem by yourself)</div
+        >
       </CollapseContainer>
 
-      <CollapseContainer title="配置大小示例" class="text-center qrcode-demo-item">
+      <CollapseContainer title="Configuration size example" class="text-center qrcode-demo-item">
         <QrCode :value="qrCodeUrl" :width="300" />
       </CollapseContainer>
 
-      <CollapseContainer title="扩展绘制示例" class="text-center qrcode-demo-item">
+      <CollapseContainer title="Extended drawing example" class="text-center qrcode-demo-item">
         <QrCode
           :value="qrCodeUrl"
           :width="200"
@@ -68,8 +80,8 @@
           :logo="LogoImg"
           @done="onQrcodeDone"
         />
-        <a-button class="mb-2" type="primary" @click="downloadDiy"> 下载 </a-button>
-        <div class="msg">要进行扩展绘制则不能将tag设为img</div>
+        <a-button class="mb-2" type="primary" @click="downloadDiy"> Download </a-button>
+        <div class="msg">For extended drawing, tag cannot be set to img</div>
       </CollapseContainer>
     </div>
   </PageWrapper>
@@ -90,7 +102,7 @@
       function download() {
         const qrEl = unref(qrRef);
         if (!qrEl) return;
-        qrEl.download('文件名');
+        qrEl.download('file name');
       }
       function downloadDiy() {
         const qrEl = unref(qrDiyRef);
@@ -100,12 +112,12 @@
 
       function onQrcodeDone({ ctx }: any) {
         if (ctx instanceof CanvasRenderingContext2D) {
-          // 额外绘制
+          // extra draw
           ctx.fillStyle = 'black';
-          ctx.font = '16px "微软雅黑"';
+          ctx.font = '16px "Microsoft Yahei"';
           ctx.textBaseline = 'bottom';
           ctx.textAlign = 'center';
-          ctx.fillText('你帅你先扫', 100, 195, 200);
+          ctx.fillText('You are handsome, you should scan first', 100, 195, 200);
         }
       }
       return {

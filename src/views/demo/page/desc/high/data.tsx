@@ -4,17 +4,17 @@ import { Badge } from 'ant-design-vue';
 
 export const refundTimeTableSchema: BasicColumn[] = [
   {
-    title: '时间',
+    title: 'time',
     width: 150,
     dataIndex: 't1',
   },
   {
-    title: '当前进度',
+    title: 'Current progress',
     width: 150,
     dataIndex: 't2',
   },
   {
-    title: '状态',
+    title: 'Status',
     width: 150,
     dataIndex: 't3',
     customRender: ({ record }) => {
@@ -22,12 +22,12 @@ export const refundTimeTableSchema: BasicColumn[] = [
     },
   },
   {
-    title: '操作员ID	',
+    title: 'Operator ID',
     width: 150,
     dataIndex: 't4',
   },
   {
-    title: '耗时',
+    title: 'Time consuming',
     width: 150,
     dataIndex: 't5',
   },
@@ -36,30 +36,30 @@ export const refundTimeTableSchema: BasicColumn[] = [
 export const refundTimeTableData: any[] = [
   {
     t1: '2017-10-01 14:10',
-    t2: '联系客户',
-    t3: '进行中',
-    t4: '取货员 ID1234',
+    t2: 'Contact customer',
+    t3: 'in progress',
+    t4: 'Picker ID1234',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '取货员出发',
-    t3: '成功',
-    t4: '取货员 ID1234',
+    t2: 'Pickup clerk departs',
+    t3: 'success',
+    t4: 'Picker ID1234',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '取货员接单',
-    t3: '成功',
-    t4: '系统',
+    t2: 'The picker takes the order',
+    t3: 'success',
+    t4: 'system',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '申请审批通过',
-    t3: '成功',
-    t4: '用户',
+    t2: 'Application approved',
+    t3: 'success',
+    t4: 'User',
     t5: '1h',
   },
 ];

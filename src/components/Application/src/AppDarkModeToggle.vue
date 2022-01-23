@@ -6,7 +6,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { computed, unref } from 'vue';
+  import { computed } from 'vue';
   import { SvgIcon } from '/@/components/Icon';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useRootSetting } from '/@/hooks/setting/useRootSetting';
@@ -22,7 +22,7 @@
   const getClass = computed(() => [
     prefixCls,
     {
-      [`${prefixCls}--dark`]: unref(isDark),
+      [`${prefixCls}--dark`]: isDark.value,
     },
   ]);
 

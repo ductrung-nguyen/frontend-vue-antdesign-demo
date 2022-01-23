@@ -22,7 +22,7 @@ export function useTabs(_router?: Router) {
   function canIUseTabs(): boolean {
     const { show } = appStore.getMultiTabsSetting;
     if (!show) {
-      throw new Error('The multi-tab page is currently not open, please open it in the settings！');
+      throw new Error('The multi-tab page is currently not open, please open it in the settings!');
     }
     return !!show;
   }

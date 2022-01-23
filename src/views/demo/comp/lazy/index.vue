@@ -1,7 +1,10 @@
 <template>
-  <PageWrapper title="懒加载基础示例" content="向下滚动到可见区域才会加载组件">
+  <PageWrapper
+    title="Lazy loading basic example"
+    content="Scroll down to the visible area to load the component"
+  >
     <div class="lazy-base-demo-wrap">
-      <h1>向下滚动</h1>
+      <h1>Scroll down</h1>
 
       <div class="lazy-base-demo-box">
         <LazyContainer>

@@ -5,14 +5,23 @@ import { h, Ref } from 'vue';
 import EditableCell from './EditableCell.vue';
 import { isArray } from '/@/utils/is';
 
-interface Params {
+export interface Params {
+  value: string;
   text: string;
   record: Recordable;
   index: number;
 }
 
+// customRender?: (opt: {
+//   value: any;
+//   text: any;
+//   record: RecordType;
+//   index: number;
+//   column: ColumnType<RecordType>;
+// }) => any | RenderedCell<RecordType>;
+
 export function renderEditCell(column: BasicColumn) {
-  return ({ text: value, record, index }: Params) => {
+  return ({ value, record, index }: Params) => {
     record.onValid = async () => {
       if (isArray(record?.validCbs)) {
         const validFns = (record?.validCbs || []).map((fn) => fn());

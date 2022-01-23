@@ -15,7 +15,7 @@
           :fieldNames="{ title: 'menuName', key: 'id' }"
           checkable
           toolbar
-          title="菜单分配"
+          title="Menu Assignment"
         />
       </template>
     </BasicForm>
@@ -47,7 +47,7 @@
       const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
         resetFields();
         setDrawerProps({ confirmLoading: false });
-        // 需要在setFieldsValue之前先填充treeData，否则Tree组件可能会报key not exist警告
+        // The treeData needs to be filled before setFieldsValue, otherwise the Tree component may report a key not exist warning
         if (unref(treeData).length === 0) {
           treeData.value = (await getMenuList()) as any as TreeItem[];
         }
@@ -60,7 +60,7 @@
         }
       });
 
-      const getTitle = computed(() => (!unref(isUpdate) ? '新增角色' : '编辑角色'));
+      const getTitle = computed(() => (!unref(isUpdate) ? 'Add role' : 'Edit role'));
 
       async function handleSubmit() {
         try {

@@ -6,62 +6,62 @@ import { Badge } from 'ant-design-vue';
 
 export const refundData = {
   a1: '1000000000',
-  a2: '已取货',
+  a2: 'Picked up',
   a3: '1234123421',
   a4: '3214321432',
 };
 
 export const personData = {
-  b1: '付小小',
+  b1: 'Pay Xiaoxiao',
   b2: '18100000000',
-  b3: '菜鸟仓储',
-  b4: '浙江省杭州市西湖区万塘路18号',
-  b5: '无',
+  b3: 'Rookie storage',
+  b4: 'No. 18, Wantang Road, Xihu District, Hangzhou City, Zhejiang Province',
+  b5: 'none',
 };
 export const refundSchema: DescItem[] = [
   {
     field: 'a1',
-    label: '取货单号',
+    label: 'Pickup No.',
   },
   {
     field: 'a2',
-    label: '状态',
+    label: 'Status',
   },
   {
     field: 'a3',
-    label: '销售单号',
+    label: 'Sales Order Number',
   },
   {
     field: 'a4',
-    label: '子订单',
+    label: 'sub-order',
   },
 ];
 export const personSchema: DescItem[] = [
   {
     field: 'b1',
-    label: '用户姓名',
+    label: 'User name',
   },
   {
     field: 'b2',
-    label: '联系电话',
+    label: 'Contact phone number',
   },
   {
     field: 'b3',
-    label: '常用快递',
+    label: 'Commonly used express',
   },
   {
     field: 'b4',
-    label: '取货地址',
+    label: 'Pickup address',
   },
   {
     field: 'b5',
-    label: '备注',
+    label: 'Notes',
   },
 ];
 
 export const refundTableSchema: BasicColumn[] = [
   {
-    title: '商品编号',
+    title: 'Item number',
     width: 150,
     dataIndex: 't1',
     customRender: ({ record }) => {
@@ -73,44 +73,45 @@ export const refundTableSchema: BasicColumn[] = [
     },
   },
   {
-    title: '商品名称',
+    title: 'Product name',
     width: 150,
     dataIndex: 't2',
   },
   {
-    title: '商品条码',
+    title: 'Commodity barcode',
     width: 150,
     dataIndex: 't3',
   },
   {
-    title: '单价	',
+    title: 'unit price',
     width: 150,
     dataIndex: 't4',
   },
   {
-    title: '数量（件）	',
+    title: 'Quantity (pieces)',
     width: 150,
     dataIndex: 't5',
   },
   {
-    title: '金额',
+    title: 'Amount',
     width: 150,
     dataIndex: 't6',
   },
 ];
+
 export const refundTimeTableSchema: BasicColumn[] = [
   {
-    title: '时间',
+    title: 'time',
     width: 150,
     dataIndex: 't1',
   },
   {
-    title: '当前进度',
+    title: 'Current progress',
     width: 150,
     dataIndex: 't2',
   },
   {
-    title: '状态',
+    title: 'Status',
     width: 150,
     dataIndex: 't3',
     customRender: ({ record }) => {
@@ -118,12 +119,12 @@ export const refundTimeTableSchema: BasicColumn[] = [
     },
   },
   {
-    title: '操作员ID	',
+    title: 'Operator ID',
     width: 150,
     dataIndex: 't4',
   },
   {
-    title: '耗时',
+    title: 'Time consuming',
     width: 150,
     dataIndex: 't5',
   },
@@ -132,7 +133,7 @@ export const refundTimeTableSchema: BasicColumn[] = [
 export const refundTableData: any[] = [
   {
     t1: 1234561,
-    t2: '矿泉水 550ml',
+    t2: 'Mineral water 550ml',
     t3: '12421432143214321',
     t4: '2.00',
     t5: 1,
@@ -140,7 +141,7 @@ export const refundTableData: any[] = [
   },
   {
     t1: 1234562,
-    t2: '矿泉水 550ml',
+    t2: 'Mineral water 550ml',
     t3: '12421432143214321',
     t4: '2.00',
     t5: 2,
@@ -148,7 +149,7 @@ export const refundTableData: any[] = [
   },
   {
     t1: 1234562,
-    t2: '矿泉水 550ml',
+    t2: 'Mineral water 550ml',
     t3: '12421432143214321',
     t4: '2.00',
     t5: 2,
@@ -156,7 +157,7 @@ export const refundTableData: any[] = [
   },
   {
     t1: 1234562,
-    t2: '矿泉水 550ml',
+    t2: 'Mineral water 550ml',
     t3: '12421432143214321',
     t4: '2.00',
     t5: 2,
@@ -167,30 +168,30 @@ export const refundTableData: any[] = [
 export const refundTimeTableData: any[] = [
   {
     t1: '2017-10-01 14:10',
-    t2: '联系客户',
-    t3: '进行中',
-    t4: '取货员 ID1234',
+    t2: 'Contact customer',
+    t3: 'in progress',
+    t4: 'Picker ID1234',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '取货员出发',
-    t3: '成功',
-    t4: '取货员 ID1234',
+    t2: 'Pickup clerk departs',
+    t3: 'success',
+    t4: 'Picker ID1234',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '取货员接单',
-    t3: '成功',
-    t4: '系统',
+    t2: 'The picker takes the order',
+    t3: 'success',
+    t4: 'system',
     t5: '5mins',
   },
   {
     t1: '2017-10-01 14:10',
-    t2: '申请审批通过',
-    t3: '成功',
-    t4: '用户',
+    t2: 'Application approved',
+    t3: 'success',
+    t4: 'User',
     t5: '1h',
   },
 ];

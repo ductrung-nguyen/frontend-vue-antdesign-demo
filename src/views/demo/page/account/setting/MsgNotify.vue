@@ -1,5 +1,5 @@
 <template>
-  <CollapseContainer title="新消息通知" :canExpan="false">
+  <CollapseContainer title="New message notification" :canExpan="false">
     <List>
       <template v-for="item in list" :key="item.key">
         <ListItem>
@@ -8,8 +8,8 @@
               {{ item.title }}
               <Switch
                 class="extra"
-                checked-children="开"
-                un-checked-children="关"
+                checked-children="on"
+                un-checked-children="off"
                 default-checked
               />
             </template>

@@ -1,21 +1,25 @@
 <template>
   <div class="m-5 result-error">
-    <Result status="error" title="提交失败" sub-title="请核对并修改以下信息后，再重新提交。">
+    <Result
+      status="error"
+      title="Submission failed"
+      sub-title="Please check and modify the following information before submitting again."
+    >
       <template #extra>
-        <a-button key="console" type="primary"> 返回修改 </a-button>
+        <a-button key="console" type="primary"> Return to modify </a-button>
       </template>
     </Result>
     <div class="result-error__content">
-      <div class="result-error__content-title">您提交的内容有如下错误：</div>
+      <div class="result-error__content-title">Your submission contains the following errors:</div>
       <div class="mb-4">
         <CloseCircleOutlined class="mr-2 result-error__content-icon" />
-        您的账户已被冻结
-        <a class="ml-4">立即解冻 ></a>
+        Your account has been frozen
+        <a class="ml-4">Thaw now></a>
       </div>
       <div class="mb-4">
         <CloseCircleOutlined class="mr-2 result-error__content-icon" />
-        您的账户还不具备申请资格
-        <a class="ml-4">立即解冻 ></a>
+        Your account is not yet eligible to apply
+        <a class="ml-4">Thaw now></a>
       </div>
     </div>
   </div>

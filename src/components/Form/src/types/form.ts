@@ -172,7 +172,7 @@ export interface FormSchema {
   // col configuration outside formModelItem
   colProps?: Partial<ColEx>;
 
-  // 默认值
+  // Defaults
   defaultValue?: any;
   isAdvanced?: boolean;
 

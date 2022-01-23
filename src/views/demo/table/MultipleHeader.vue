@@ -13,7 +13,7 @@
     components: { BasicTable },
     setup() {
       const [registerTable] = useTable({
-        title: '多级表头示例',
+        title: 'Example of a multi-level header',
         api: demoListApi,
         columns: getMultipleHeaderColumns(),
       });

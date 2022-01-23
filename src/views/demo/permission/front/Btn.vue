@@ -1,19 +1,25 @@
 <template>
   <PageWrapper
-    title="前端权限按钮示例"
+    title="Front-end permission button example"
     contentBackground
     contentClass="p-4"
-    content="由于刷新的时候会请求用户信息接口，会根据接口重置角色信息，所以刷新后界面会恢复原样，如果不需要，可以注释 src/layout/default/index内的获取用户信息接口"
+    content="Since the user information interface will be requested when refreshing, the role information will be reset according to the interface, so the interface will be restored to its original state after the refresh. If not, you can comment the user information interface in src/layout/default/index"
   >
     <CurrentPermissionMode />
 
     <p>
-      当前角色: <a> {{ userStore.getRoleList }} </a>
+      Current role: <a> {{ userStore.getRoleList }} </a>
     </p>
-    <Alert class="mt-4" type="info" message="点击后请查看按钮变化" show-icon />
+    <Alert
+      class="mt-4"
+      type="info"
+      message="Please see the button changes after clicking"
+      show-icon
+    />
 
     <div class="mt-4">
-      权限切换(请先切换权限模式为前端角色权限模式):
+      Permission switching (please switch the permission mode to the front-end role permission mode
+      first):
       <Space>
         <a-button @click="changeRole(RoleEnum.SUPER)" :type="isSuper ? 'primary' : 'default'">
           {{ RoleEnum.SUPER }}
@@ -23,39 +29,49 @@
         </a-button>
       </Space>
     </div>
-    <Divider>组件方式判断权限(有需要可以自行全局注册)</Divider>
+    <Divider>Component way to judge permissions (you can register globally if necessary)</Divider>
     <Authority :value="RoleEnum.SUPER">
-      <a-button type="primary" class="mx-4"> 拥有super角色权限可见 </a-button>
+      <a-button type="primary" class="mx-4">Visible with super role permissions</a-button>
     </Authority>
 
     <Authority :value="RoleEnum.TEST">
-      <a-button color="success" class="mx-4"> 拥有test角色权限可见 </a-button>
+      <a-button color="success" class="mx-4">Visible with test role permissions</a-button>
     </Authority>
 
     <Authority :value="[RoleEnum.TEST, RoleEnum.SUPER]">
-      <a-button color="error" class="mx-4"> 拥有[test,super]角色权限可见 </a-button>
+      <a-button color="error" class="mx-4">Visible with [test, super] role permissions</a-button>
     </Authority>
 
-    <Divider>函数方式方式判断权限(适用于函数内部过滤)</Divider>
+    <Divider
+      >Judging permissions by function method (applicable to internal filtering of
+      functions)</Divider
+    >
     <a-button v-if="hasPermission(RoleEnum.SUPER)" type="primary" class="mx-4">
-      拥有super角色权限可见
+      Visible with super role permissions
     </a-button>
 
     <a-button v-if="hasPermission(RoleEnum.TEST)" color="success" class="mx-4">
-      拥有test角色权限可见
+      Visible with test role permissions
     </a-button>
 
     <a-button v-if="hasPermission([RoleEnum.TEST, RoleEnum.SUPER])" color="error" class="mx-4">
-      拥有[test,super]角色权限可见
+      Visible with [test, super] role permissions
     </a-button>
 
-    <Divider>指令方式方式判断权限(该方式不能动态修改权限.)</Divider>
-    <a-button v-auth="RoleEnum.SUPER" type="primary" class="mx-4"> 拥有super角色权限可见 </a-button>
+    <Divider
+      >Judging permissions by instruction mode (This mode cannot dynamically modify
+      permissions.)</Divider
+    >
+    <a-button v-auth="RoleEnum.SUPER" type="primary" class="mx-4"
+      >Visible with super role permissions</a-button
+    >
 
-    <a-button v-auth="RoleEnum.TEST" color="success" class="mx-4"> 拥有test角色权限可见 </a-button>
+    <a-button v-auth="RoleEnum.TEST" color="success" class="mx-4"
+      >Visible with test role permissions</a-button
+    >
 
     <a-button v-auth="[RoleEnum.TEST, RoleEnum.SUPER]" color="error" class="mx-4">
-      拥有[test,super]角色权限可见
+      Visible with [test, super] role permissions
     </a-button>
   </PageWrapper>
 </template>

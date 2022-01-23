@@ -1,6 +1,11 @@
 <template>
-  <PageWrapper title="层级面包屑示例" content="子级页面面包屑会添加到当前层级后面">
-    <router-link to="/feat/breadcrumb/children/childrenDetail"> 进入子级详情页 </router-link>
+  <PageWrapper
+    title="Hierarchical breadcrumb example"
+    content="Child page breadcrumbs will be added after the current level"
+  >
+    <router-link to="/feat/breadcrumb/children/childrenDetail">
+      Enter the child details page
+    </router-link>
   </PageWrapper>
 </template>
 <script lang="ts">

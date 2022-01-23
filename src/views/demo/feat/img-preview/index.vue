@@ -1,7 +1,7 @@
 <template>
-  <PageWrapper title="图片预览示例">
+  <PageWrapper title="Image preview example">
     <ImagePreview :imageList="imgList" />
-    <a-button @click="openImg" type="primary">无预览图</a-button>
+    <a-button @click="openImg" type="primary">No preview</a-button>
   </PageWrapper>
 </template>
 <script lang="ts">
@@ -20,9 +20,10 @@
     setup() {
       function openImg() {
         const onImgLoad = ({ index, url, dom }) => {
-          console.log(`第${index + 1}张图片已加载，URL为：${url}`, dom);
+          console.log(`Image ${index + 1} has been loaded, URL is: ${url}`, dom);
         };
-        // 可以使用createImgPreview返回的 PreviewActions 来控制预览逻辑，实现类似幻灯片、自动旋转之类的骚操作
+        // You can use the PreviewActions returned by createImgPreview to control the preview logic
+        // to implement tricky operations like slideshows and automatic rotation
         createImgPreview({ imageList: imgList, defaultWidth: 700, rememberState: true, onImgLoad });
       }
       return { imgList, openImg };

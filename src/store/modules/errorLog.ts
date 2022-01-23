@@ -8,6 +8,8 @@ import projectSetting from '/@/settings/projectSetting';
 
 import { ErrorTypeEnum } from '/@/enums/exceptionEnum';
 
+import dayjs from 'dayjs';
+
 export interface ErrorLogState {
   errorLogInfoList: Nullable<ErrorLogInfo[]>;
   errorLogListCount: number;
@@ -31,7 +33,7 @@ export const useErrorLogStore = defineStore({
     addErrorLogInfo(info: ErrorLogInfo) {
       const item = {
         ...info,
-        time: formatToDateTime(new Date()),
+        time: formatToDateTime(dayjs(new Date())),
       };
       this.errorLogInfoList = [item, ...(this.errorLogInfoList || [])];
       this.errorLogListCount += 1;

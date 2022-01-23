@@ -49,7 +49,7 @@
         });
       });
 
-      const getTitle = computed(() => (!unref(isUpdate) ? '新增菜单' : '编辑菜单'));
+      const getTitle = computed(() => (!unref(isUpdate) ? 'Add menu' : 'Edit menu'));
 
       async function handleSubmit() {
         try {

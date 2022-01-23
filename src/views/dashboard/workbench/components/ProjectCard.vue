@@ -1,7 +1,7 @@
 <template>
-  <Card title="项目" v-bind="$attrs">
+  <Card title="project" v-bind="$attrs">
     <template #extra>
-      <a-button type="link" size="small">更多</a-button>
+      <a-button type="link" size="small">more</a-button>
     </template>
 
     <CardGrid v-for="item in items" :key="item" class="!md:w-1/3 !w-full">

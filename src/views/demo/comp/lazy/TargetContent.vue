@@ -3,7 +3,7 @@
     <template #cover>
       <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
     </template>
-    <CardMeta title="懒加载组件" />
+    <CardMeta title="Lazy loading components" />
   </Card>
 </template>
 <script lang="ts">

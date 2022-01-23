@@ -3,13 +3,14 @@ export const cardList = (() => {
   for (let i = 0; i < 6; i++) {
     result.push({
       id: i,
-      title: 'Vben Admin',
-      description: '基于Vue Next, TypeScript, Ant Design Vue实现的一套完整的企业级后台管理系统',
+      title: 'Vue Admin',
+      description:
+        'A complete set of enterprise-level background management system based on Vue Next, TypeScript, Ant Design Vue',
       datetime: '2020-11-26 17:39',
-      extra: '编辑',
+      extra: 'edit',
       icon: 'logos:vue',
       color: '#1890ff',
-      author: 'Vben',
+      author: 'Vue admin',
       percent: 20 * (i + 1),
     });
   }

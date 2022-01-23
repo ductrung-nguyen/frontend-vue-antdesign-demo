@@ -3,27 +3,27 @@
     <DeptTree class="w-1/4 xl:w-1/5" @select="handleSelect" />
     <BasicTable @register="registerTable" class="w-3/4 xl:w-4/5" :searchInfo="searchInfo">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate">新增账号</a-button>
+        <a-button type="primary" @click="handleCreate">Add account</a-button>
       </template>
       <template #action="{ record }">
         <TableAction
           :actions="[
             {
               icon: 'clarity:info-standard-line',
-              tooltip: '查看用户详情',
+              tooltip: 'View user details',
               onClick: handleView.bind(null, record),
             },
             {
               icon: 'clarity:note-edit-line',
-              tooltip: '编辑用户资料',
+              tooltip: 'Edit user profile',
               onClick: handleEdit.bind(null, record),
             },
             {
               icon: 'ant-design:delete-outlined',
               color: 'error',
-              tooltip: '删除此账号',
+              tooltip: 'Delete this account',
               popConfirm: {
-                title: '是否确认删除',
+                title: 'Are you sure to delete',
                 confirm: handleDelete.bind(null, record),
               },
             },
@@ -46,17 +46,17 @@
   import AccountModal from './AccountModal.vue';
 
   import { columns, searchFormSchema } from './account.data';
-  import { useGo } from '/@/hooks/web/usePage';
+  import { useNavigator } from '/@/hooks/web/usePage';
 
   export default defineComponent({
     name: 'AccountManagement',
     components: { BasicTable, PageWrapper, DeptTree, AccountModal, TableAction },
     setup() {
-      const go = useGo();
+      const go = useNavigator();
       const [registerModal, { openModal }] = useModal();
       const searchInfo = reactive<Recordable>({});
       const [registerTable, { reload, updateTableDataRecord }] = useTable({
-        title: '账号列表',
+        title: 'Account List',
         api: getAccountList,
         rowKey: 'id',
         columns,
@@ -74,7 +74,7 @@
         },
         actionColumn: {
           width: 120,
-          title: '操作',
+          title: 'Operation',
           dataIndex: 'action',
           slots: { customRender: 'action' },
         },
@@ -100,8 +100,9 @@
 
       function handleSuccess({ isUpdate, values }) {
         if (isUpdate) {
-          // 演示不刷新表格直接更新内部数据。
-          // 注意：updateTableDataRecord要求表格的rowKey属性为string并且存在于每一行的record的keys中
+          // Demonstrates direct update of internal data without refreshing the table.
+          // Note: updateTableDataRecord requires that the rowKey property of the table is string
+          // and exists in the keys of each row's record
           const result = updateTableDataRecord(values.id, values);
           console.log(result);
         } else {

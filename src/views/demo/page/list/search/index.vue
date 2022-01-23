@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper :class="prefixCls" title="搜索列表">
+  <PageWrapper :class="prefixCls" title="search list">
     <template #headerContent>
       <BasicForm
         :class="`${prefixCls}__header-form`"

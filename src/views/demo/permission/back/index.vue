@@ -1,22 +1,22 @@
 <template>
   <PageWrapper
-    title="后台权限示例"
+    title="Background permission example"
     contentBackground
     contentClass="p-4"
-    content="目前mock了两组数据， id为1 和 2 具体返回的菜单可以在mock/sys/menu.ts内查看"
+    content="At present, two sets of data have been mocked. The id is 1 and 2. The specific menu returned can be viewed in mock/sys/menu.ts"
   >
     <CurrentPermissionMode />
 
-    <Alert class="mt-4" type="info" message="点击后请查看左侧菜单变化" show-icon />
+    <Alert class="mt-4" type="info" message="Click to see the changes in the left menu" show-icon />
 
     <div class="mt-4">
-      权限切换(请先切换权限模式为后台权限模式):
+      Permission switching (please switch the permission mode to background permission mode first):
       <Space>
         <a-button @click="switchToken(1)" :disabled="!isBackPremissionMode">
-          获取用户id为1的菜单
+          Get the menu with user id 1
         </a-button>
         <a-button @click="switchToken(2)" :disabled="!isBackPremissionMode">
-          获取用户id为2的菜单
+          Get the menu with user id 2
         </a-button>
       </Space>
     </div>
@@ -45,11 +45,12 @@
       );
 
       async function switchToken(userId: number) {
-        // 本函数切换用户登录Token的部分仅用于演示，实际生产时切换身份应当重新登录
+        // The part of this function to switch the user login Token is only for demonstration.
+        // In actual production, the user should log in again to switch the identity.
         const token = 'fakeToken' + userId;
         userStore.setToken(token);
 
-        // 重新获取用户信息和菜单
+        // Retrieve user information and menus
         userStore.getUserInfoAction();
         refreshMenu();
       }
